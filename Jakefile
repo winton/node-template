@@ -42,7 +42,7 @@ namespace('install', function() {
 		var cmds = {};
 		for (dep in pkg.dependencies) {
 			dep = dep + '@' + pkg.dependencies[dep];
-			cmds['Installed ' + dep + '.'] = dep;
+			cmds['Installed ' + dep + '.'] = 'npm install -g ' + dep;
 		}
 		execCommands(cmds);
 	});
