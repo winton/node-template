@@ -1,7 +1,5 @@
 process.env.NODE_ENV ||= 'development'
 
-require.paths.push '/usr/local/lib/node_modules'
-
 express = require 'express'
 app = module.exports = express.createServer()
 
