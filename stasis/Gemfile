@@ -1,0 +1,6 @@
+source :rubygems
+
+gem "coffee-script"
+gem "haml"
+gem "smart_asset"#, :path => "~/sites/repositories/active/smart_asset"
+gem "stasis"#, :path => "~/sites/repositories/active/stasis"

@@ -50,8 +50,10 @@ namespace('install', function() {
 	desc('Install ruby dependencies.');
 	task('ruby', function (params) {
 		execCommands({
-			'Installed stasis.':
-				'gem install --no-ri --no-rdoc stasis'
+			'Installed bundler.':
+				'gem install --no-ri --no-rdoc bundler',
+			'Installed gems.':
+				'cd ' + __dirname + '/stasis && bundle install'
 		});
 	});
 });

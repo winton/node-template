@@ -1,0 +1,14 @@
+public: ../public
+destination:
+  javascripts: js
+  stylesheets: css
+sources:
+  javascripts: js
+  stylesheets: css
+
+javascripts:
+  application:
+    - jquery-1.7
+    - underscore-1.2.1
+    - backbone-0.5.3
+stylesheets:

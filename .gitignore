@@ -1,7 +1,7 @@
 .DS_Store
 *.gem
 .bundle
+.sass-cache
 dump.rdb
-Gemfile.lock
 pkg
 tmp

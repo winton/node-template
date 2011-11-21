@@ -6,28 +6,37 @@ A node template for new apps.
 Requirements
 ------------
 
-<pre>
-gem install stencil
-</pre>
+    gem install stencil
 
 Setup the template
 ------------------
 
 You only have to do this once.
 
-<pre>
-git clone git@github.com:winton/node_template.git
-cd node_template
-stencil
-</pre>
+    git clone git@github.com:winton/node_template.git
+    cd node_template
+    stencil
 
 Setup a new project
 -------------------
 
 Do this for every new project.
 
-<pre>
-mkdir my_project
-git init
-stencil node_template
-</pre>
+    mkdir my_project
+    git init
+    stencil node_template
+
+Install Dependencies
+--------------------
+
+    jake install
+
+Build Project
+-------------
+
+    jake build
+
+Start Server
+------------
+
+    node lib/app.js
