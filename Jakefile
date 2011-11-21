@@ -11,20 +11,19 @@ namespace('build', function() {
 
 	desc('Build /lib from /src.');
 	task('lib', function (params) {
-		execCommands({
-			'Removed lib directory.':
-				'rm -rf ' + __dirname + '/lib',
-			'Built /lib from /src.':
-				'coffee -b -o ' + __dirname + '/lib -c ' + __dirname + '/src'
+		exec('rm -rf ' + __dirname + '/lib', function() {
+			console.log('Removed lib directory.');
+			exec('coffee -b -o ' + __dirname + '/lib -c ' + __dirname + '/src', function () {
+				console.log('Built /lib from /src.');
+			});
 		});
 	});
 
 	desc('Build stasis templates.');
 	task('stasis', function (params) {
-		execCommands({
-			'Built stasis templates.':
-				'cd ' + __dirname + '/stasis && stasis -p ../public'
-		});
+		exec('cd ' + __dirname + '/stasis && stasis -p ../public', function() {
+			console.log('Built stasis templates.');
+		})
 	});
 });
 
@@ -39,28 +38,24 @@ namespace('install', function() {
 	desc('Install node dependencies.');
 	task('node', function (params) {
 		var pkg = JSON.parse(fs.readFileSync(__dirname + '/package.json').toString());
-		var cmds = {};
+		var cmds = [];
 		for (dep in pkg.dependencies) {
 			dep = dep + '@' + pkg.dependencies[dep];
-			cmds['Installed ' + dep + '.'] = 'npm install -g ' + dep;
+			(function(dep) {
+				exec('npm install -g ' + dep, function() {
+					console.log('Installed ' + dep + '.');
+				});
+			})(dep);
 		}
-		execCommands(cmds);
 	});
 
 	desc('Install ruby dependencies.');
 	task('ruby', function (params) {
-		execCommands({
-			'Installed bundler.':
-				'gem install --no-ri --no-rdoc bundler',
-			'Installed gems.':
-				'cd ' + __dirname + '/stasis && bundle install'
+		exec('gem install --no-ri --no-rdoc bundler', function() {
+			console.log('Installed bundler.');
+			exec('cd ' + __dirname + '/stasis && bundle install', function () {
+				console.log('Installed gems.');
+			});
 		});
 	});
 });
-
-function execCommands(commands) {
-	for(var msg in commands)
-		(function(msg, cmd) {
-			exec(commands[msg], function () { console.log(msg); });
-		})(msg, commands[msg]);
-}
