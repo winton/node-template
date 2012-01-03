@@ -2,5 +2,7 @@
 %html
   %head
     %title NodeTemplate
+    = stylesheet_link_merged "application"
   %body
     = yield
+    = javascript_include_merged "application"

@@ -8,7 +8,10 @@ sources:
 
 javascripts:
   application:
-    - jquery-1.7
-    - underscore-1.2.1
-    - backbone-0.5.3
+    - lib/jquery-1.7
+    - lib/underscore-1.2.1
+    - lib/backbone-0.5.3
+    - application
 stylesheets:
+  application:
+    - application

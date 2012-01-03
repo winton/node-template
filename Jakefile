@@ -13,8 +13,9 @@ namespace('build', function() {
 	task('lib', function (params) {
 		exec('rm -rf ' + __dirname + '/lib', function() {
 			console.log('Removed lib directory.');
-			exec('coffee -b -o ' + __dirname + '/lib -c ' + __dirname + '/src', function () {
+			exec('coffee -b -o ' + __dirname + '/lib -c ' + __dirname + '/src', function (error, stdout, stderr) {
 				console.log('Built /lib from /src.');
+				console.log(stderr);
 			});
 		});
 	});
