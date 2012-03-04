@@ -1,19 +1,25 @@
 node_env = process.env.NODE_ENV || 'development'
 
-# Common dependencies
+# Dependencies
 
 common = require './common'
 async = common.async
 Backbone = common.Backbone
-redis = common.redis
+crypto = common.crypto
+rest = common.rest
 secret = common.secret
-_ = common.Underscore
+_ = common.underscore
 
-# Express dependencies
+# Express
 
 express = require 'express'
 app = module.exports = express.createServer()
-connect_redis = require('connect-redis')(express)
+
+# Config
+
+fs = require 'fs'
+config = "#{__dirname}/../config/node_template.json"
+config = JSON.parse(fs.readFileSync(config))[node_env]
 
 # Middleware
 
@@ -22,15 +28,8 @@ session = express.session(
     path: '/'
     httpOnly: true
     maxAge: 365 * 24 * 60 * 60 * 1000
-  secret: secret,
-  store: new connect_redis
+  secret: secret
 )
-
-customSession = (req, res, next) ->
-  if req.param('session') == '0'
-    next()
-  else
-    session(req, res, next)
 
 # Configure app
 
@@ -41,66 +40,31 @@ app.configure ->
   app.use express.cookieParser()
   app.use express.logger()
   app.use express.methodOverride()
-  app.use customSession
 
-# Backbone
+# Error handling
 
-Backbone.sync = (method, model, options) ->
-  path =
-    if _.isFunction(model.url)
-      model.url()
-    else
-      model.url
+app.error (err, req, res, next) ->
+  code = (Math.random() + '').substring(2)
   
-  unless model.models?
-    id = path.match(r = /\/([^\/]+)$/)[1]
-    path = path.replace(r, '')
+  console.log("\nError - #{code} - #{(new Date()).toUTCString()}")
+  console.log("#{req.method} #{req.url}")
+  console.log(req.query)
   
-  success = options.success
-
-  switch method
-    when "create", "update"
-      redis.hset path, id, JSON.stringify(model), ->
-        if options.scope
-          redis.sadd options.scope, path, -> success()
-        else
-          success()
-    when "read"
-      if id
-        redis.hget path, id, (e, json) ->
-          success(JSON.parse(json))
-      else if options.scope
-        redis.smembers path, (e, keys) ->
-          fns = _.map keys, (key) ->
-            (callback) ->
-              redis.hgetall key, (e, hash) ->
-                callback(null,
-                  _.map _.values(hash), (json) -> JSON.parse(json)
-                )
-          async.parallel fns, (err, results) ->
-            success(_.flatten(results))
-      else
-        redis.hgetall path, (e, hash) ->
-          success(
-            _.map _.values(hash), (json) -> JSON.parse(json)
-          )
-    when "delete"
-      redis.hdel path, id, ->
-        if options.scope
-          redis.hlen path, (e, len) ->
-            if len == 0
-              redis.srem options.scope, path, -> success()
-        else
-          success()
+  if req.headers['user-agent']
+    console.log("#{req.headers['user-agent']}")
+  
+  console.log("\n#{err.stack}\n")
+  res.send("Error reference code #{code}")
 
 # Actions
 
-app.get('/test', (req, res) ->
-  res.send test: 1
-)
+app.get '/hello.json', session, (req, res) ->
+  res.send(hello: 'world')
 
 # Start server
 
 unless module.parent
-  app.listen 8080
-  console.log 'Node.js started on port 8080'
+  port = if node_env == 'production' then 80 else 8080
+  port = process.env.PORT if process.env.PORT
+  app.listen port
+  console.log "Node.js started on port #{port}"

@@ -29,6 +29,7 @@ Do this for every new project.
 Install Dependencies
 --------------------
 
+    npm install jake -g
     jake install
 
 Build Project

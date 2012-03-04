@@ -43,7 +43,7 @@ namespace('install', function() {
 		for (dep in pkg.dependencies) {
 			dep = dep + '@' + pkg.dependencies[dep];
 			(function(dep) {
-				exec('npm install -g ' + dep, function() {
+				exec('cd ' + __dirname + ' && npm install ' + dep, function() {
 					console.log('Installed ' + dep + '.');
 				});
 			})(dep);
