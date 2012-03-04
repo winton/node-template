@@ -4,9 +4,8 @@ node_env = process.env.NODE_ENV || 'development'
 
 common = require './common'
 async = common.async
-Backbone = common.Backbone
+config = common.config
 crypto = common.crypto
-rest = common.rest
 secret = common.secret
 _ = common.underscore
 
@@ -14,12 +13,6 @@ _ = common.underscore
 
 express = require 'express'
 app = module.exports = express.createServer()
-
-# Config
-
-fs = require 'fs'
-config = "#{__dirname}/../config/node_template.json"
-config = JSON.parse(fs.readFileSync(config))[node_env]
 
 # Middleware
 
@@ -31,6 +24,16 @@ session = express.session(
   secret: secret
 )
 
+sessionGate = (req, res, next) ->
+  # Sessions are disabled for these paths:
+  no_session = [
+    "/hello.json"
+  ]
+  if no_session.indexOf(req.url.split('?')[0]) > -1
+    next()
+  else
+    session(req, res, next)
+
 # Configure app
 
 app.configure ->
@@ -40,6 +43,7 @@ app.configure ->
   app.use express.cookieParser()
   app.use express.logger()
   app.use express.methodOverride()
+  app.use sessionGate
 
 # Error handling
 

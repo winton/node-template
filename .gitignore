@@ -2,6 +2,7 @@
 *.gem
 .bundle
 .sass-cache
+config/node_template.json
 dump.rdb
 pkg
 tmp
