@@ -4,6 +4,7 @@ var exec = require('child_process').exec,
 desc('Build project.');
 task('build', function (params) {
 	jake.Task['build:lib'].invoke();
+	jake.Task['build:test'].invoke();
 	jake.Task['build:stasis'].invoke();
 });
 
@@ -15,6 +16,17 @@ namespace('build', function() {
 			console.log('Removed lib directory.');
 			exec('coffee -b -o ' + __dirname + '/lib -c ' + __dirname + '/src', function (error, stdout, stderr) {
 				console.log('Built /lib from /src.');
+				console.log(stderr);
+			});
+		});
+	});
+
+	desc('Build /test from /test_src.');
+	task('test', function (params) {
+		exec('rm -rf ' + __dirname + '/test', function() {
+			console.log('Removed test directory.');
+			exec('coffee -b -o ' + __dirname + '/test -c ' + __dirname + '/test_src', function (error, stdout, stderr) {
+				console.log('Built /test from /test_src.');
 				console.log(stderr);
 			});
 		});
