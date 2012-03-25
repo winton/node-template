@@ -1,4 +1,5 @@
 var exec = require('child_process').exec,
+	kexec = require('kexec'),
 	fs = require('fs');
 
 desc('Build project.');
@@ -71,4 +72,9 @@ namespace('install', function() {
 			});
 		});
 	});
+});
+
+desc('Run tests.');
+task('test', function (params) {
+	kexec('cd ' + __dirname + ' && mocha --reporter list')
 });

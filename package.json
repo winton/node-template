@@ -6,6 +6,7 @@
 		"chai": "0.5.2",
 		"coffee-script": "1.2.0",
 		"express": "2.5.8",
+		"kexec": "0.0.3",
 		"mocha": "1.0.0",
 		"sinon": "1.3.2",
 		"uglify-js": "1.2.5",
