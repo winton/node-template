@@ -76,5 +76,5 @@ namespace('install', function() {
 
 desc('Run tests.');
 task('test', function (params) {
-	kexec('cd ' + __dirname + ' && mocha --reporter list')
+	kexec('cd ' + __dirname + ' && mocha --reporter spec')
 });
