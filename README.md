@@ -1,16 +1,13 @@
-NodeTemplate
-============
+#NodeTemplate
 
 A node template for new apps.
 
-Requirements
-------------
+##Requirements
 
     gem install stencil
     gem install foreman
 
-Setup the template
-------------------
+##Setup the template
 
 You only have to do this once.
 
@@ -18,8 +15,7 @@ You only have to do this once.
     cd node_template
     stencil
 
-Setup a new project
--------------------
+##Setup a new project
 
 Do this for every new project.
 
@@ -27,13 +23,11 @@ Do this for every new project.
     git init
     stencil node_template
 
-Install Dependencies
---------------------
+##Install Dependencies
 
     npm install jake -g
     jake install
 
-Start Server
-------------
+##Start Server
 
     foreman start
