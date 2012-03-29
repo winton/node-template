@@ -3,16 +3,16 @@ node_env = process.env.NODE_ENV || 'development'
 # Dependencies
 
 common = require './common'
-async = common.async
+async  = common.async
 config = common.config
 crypto = common.crypto
 secret = common.secret
-_ = common.underscore
+_      = common.underscore
 
 # Express
 
 express = require 'express'
-app = module.exports = express.createServer()
+app     = module.exports = express.createServer()
 
 # Middleware
 
@@ -64,11 +64,12 @@ app.error (err, req, res, next) ->
 
 app.get '/hello.json', session, (req, res) ->
   res.send(hello: 'world')
+app.get '/hi.json', session, (req, res) ->
+  res.send(hi: 'world')
 
 # Start server
 
-unless module.parent
-  port = if node_env == 'production' then 80 else 8080
-  port = process.env.PORT if process.env.PORT
-  app.listen port
-  console.log "Node.js started on port #{port}"
+port = if node_env == 'production' then 80 else 8080
+port = process.env.PORT if process.env.PORT
+app.listen port
+console.log "Node.js started on port #{port}"

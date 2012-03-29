@@ -7,6 +7,7 @@ Requirements
 ------------
 
     gem install stencil
+    gem install foreman
 
 Setup the template
 ------------------
@@ -32,12 +33,7 @@ Install Dependencies
     npm install jake -g
     jake install
 
-Build Project
--------------
-
-    jake build
-
 Start Server
 ------------
 
-    node lib/app.js
+    foreman start
