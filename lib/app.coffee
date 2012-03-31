@@ -4,7 +4,6 @@ node_env = process.env.NODE_ENV || 'development'
 
 common = require './common'
 async  = common.async
-config = common.config
 crypto = common.crypto
 secret = common.secret
 _      = common.underscore
@@ -63,9 +62,7 @@ app.error (err, req, res, next) ->
 # Actions
 
 app.get '/hello.json', session, (req, res) ->
-  res.send(hello: 'world')
-app.get '/hi.json', session, (req, res) ->
-  res.send(hi: 'world')
+  res.send(hello: 'holla')
 
 # Start server
 

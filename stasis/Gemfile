@@ -1,6 +1,7 @@
 source :rubygems
 
 gem "coffee-script"
+gem "foreman"
 gem "haml"
 gem "less"
 gem "smart_asset"

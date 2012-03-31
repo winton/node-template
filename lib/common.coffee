@@ -10,7 +10,4 @@ common.secret = common.crypto
   .update(";node_template!@#$%^&*(69)")
   .digest('hex')
 
-common.config = fs.readFileSync("#{__dirname}/../config/node_template.json")
-common.config = JSON.parse(common.config)[process.env.NODE_ENV || 'development']
-
 module.exports = common

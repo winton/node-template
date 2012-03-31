@@ -4,30 +4,27 @@ A node template for new apps.
 
 ##Requirements
 
-    gem install stencil
-    gem install foreman
+* [RubyGems](http://rubygems.org)
+* [NPM](http://npmjs.org)
+* [CoffeeScript](http://coffeescript.org) - `npm install coffee-script`
+* [Supervisor](https://github.com/isaacs/node-supervisor) - `npm install supervisor`
 
-##Setup the template
+##Start a new project
 
-You only have to do this once.
-
-    git clone git@github.com:winton/node_template.git
-    cd node_template
-    stencil
-
-##Setup a new project
-
-Do this for every new project.
-
-    mkdir my_project
-    git init
-    stencil node_template
-
-##Install Dependencies
-
-    npm install jake -g
-    jake install
+	git clone git@github.com:winton/node_template.git
+	cd node_template
+	cake new
 
 ##Start Server
 
-    foreman start
+    cake start
+
+##More cake tasks
+
+	cake
+
+##Template branches
+
+* [backbone](https://github.com/winton/node_template/tree/backbone)
+* [backbone-everyauth](https://github.com/winton/node_template/tree/backbone-everyauth)
+* [backbone-redis](https://github.com/winton/node_template/tree/backbone-redis)
