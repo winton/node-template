@@ -62,7 +62,7 @@ app.error (err, req, res, next) ->
 # Actions
 
 app.get '/hello.json', session, (req, res) ->
-  res.send(hello: 'holla')
+  res.send(hello: 'world')
 
 # Start server
 

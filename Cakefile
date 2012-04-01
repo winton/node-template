@@ -7,7 +7,9 @@ ask = (q, fn) ->
   console.log("\n#{q}")
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
-  process.stdin.on 'data', (path) -> fn(path.replace(/\s+$/, ''))
+  process.stdin.on 'data', (path) ->
+    console.log('')
+    fn(path.replace(/\s+$/, ''))
 
 replaceProcess = (cmd) -> 
   kexec = require('kexec')
@@ -36,13 +38,16 @@ task 'new', 'create a new project', (options) ->
       [ url, name ] = url
       cmd = [
         "cd ../"
-        "cp -r #{__dirname} #{name}"
+        "git init #{name}"
         "cd #{name}"
-        "rm -rf .git"
-        "git init ."
         "git remote add origin #{url}"
+        "git remote add template git://github.com/winton/node_template.git"
+        "git fetch template"
+        "git merge template/master"
         "cake install"
-        "cake start"
+        "echo \"\n\\033[1;32mSuccess!\\033[0m\n\""
+        'echo  "\\033[1;33mAdd to ~/.profile:\\033[0m export PATH=\\"./node_modules/.bin:\\$PATH\\""'
+        "echo \"\\033[1;33mStart your server:\\033[0m cd ../#{name} && cake start\n\""
       ].join(' && ')
       replaceProcess(cmd)
     else

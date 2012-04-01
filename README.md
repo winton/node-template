@@ -1,13 +1,35 @@
 #NodeTemplate
 
-A node template for new apps.
+A node template for web apps.
 
-##Requirements
+##The stack
+
+Server (Node.js):
+
+* [CoffeeScript](http://coffeescript.org)
+* [Express](http://expressjs.com)
+* [Mocha](http://visionmedia.github.com/mocha)
+* [Sinon](http://sinonjs.org)
+* [Underscore](http://documentcloud.github.com/underscore)
+
+Markup (Ruby):
+
+* [Stasis](http://stasis.me)
+* [CoffeeScript](http://coffeescript.org)
+* [HAML](http://haml-lang.com)
+* [LESS](http://lesscss.org)
+* [SmartAsset](https://github.com/winton/smart_asset)
+
+Process management:
+
+* [Foreman](https://github.com/ddollar/foreman)
+* [Supervisor](https://github.com/isaacs/node-supervisor)
+
+##Install these
 
 * [RubyGems](http://rubygems.org)
 * [NPM](http://npmjs.org)
 * [CoffeeScript](http://coffeescript.org) - `npm install coffee-script`
-* [Supervisor](https://github.com/isaacs/node-supervisor) - `npm install supervisor`
 
 ##Start a new project
 
