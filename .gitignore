@@ -5,4 +5,5 @@
 dump.rdb
 node_modules
 pkg
+public
 tmp
