@@ -37,13 +37,11 @@ Process management:
 	cd node_template
 	cake new
 
-##Start Server
+Follow the instructions at the end.
 
-    cake start
+##More
 
-##More cake tasks
-
-	cake
+Run `cake` in your project to see more cake tasks.
 
 ##Template branches
 
