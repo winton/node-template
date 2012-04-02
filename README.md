@@ -12,10 +12,10 @@ Node.js web app template.
 * [Sinon](http://sinonjs.org)
 * [Underscore](http://documentcloud.github.com/underscore)
 
-[Stasis](http://stasis.me) statically generates the client side:
+[Stasis](http://stasis.me) statically generates client side files:
 
 * [Bootstrap](http://twitter.github.com/bootstrap)
-* [Haml](http://haml-lang.com/), [Sass](http://sass-lang.com), [CoffeeScript](http://coffeescript.org), and [lots of other languages](http://stasis.me/#more)
+* [Haml](http://haml-lang.com/), [Sass](http://sass-lang.com), [CoffeeScript](http://coffeescript.org), and [many other languages](http://stasis.me/#more)
 * [jQuery](http://jquery.com)
 * [Modernizr](http://modernizr.com/)
 * [SmartAsset](https://github.com/winton/smart_asset)
@@ -54,11 +54,11 @@ Check each branch's README for installation instructions.
 
 ## Contribute
 
-[Create an issue] to discuss template changes.
+[Create an issue](https://github.com/winton/node_template/issues/new) to discuss template changes.
 
-Pull requests are much appreciated.
+Pull requests for template changes and new branches are even better.
 
-## Follow
+## Stay up to date
 
 [Watch this project](https://github.com/winton/node_template#) on Github.
 
