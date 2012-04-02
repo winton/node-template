@@ -1,6 +1,6 @@
 #NodeTemplate
 
-A node template for web apps.
+Node.js web app template.
 
 ##The stack
 
@@ -48,3 +48,5 @@ Run `cake` in your project to see more cake tasks.
 * [backbone](https://github.com/winton/node_template/tree/backbone)
 * [backbone-everyauth](https://github.com/winton/node_template/tree/backbone-everyauth)
 * [backbone-redis](https://github.com/winton/node_template/tree/backbone-redis)
+
+Check each branch's README for installation instructions.
