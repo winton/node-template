@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd stasis
+cd client
 stasis -p ../public -d

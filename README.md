@@ -4,7 +4,7 @@ Node.js web app template.
 
 ##The stack
 
-Server (Node.js):
+[Node.js](http://nodejs.org/) server side:
 
 * [CoffeeScript](http://coffeescript.org)
 * [Express](http://expressjs.com)
@@ -12,13 +12,14 @@ Server (Node.js):
 * [Sinon](http://sinonjs.org)
 * [Underscore](http://documentcloud.github.com/underscore)
 
-Markup (Ruby):
+[Stasis](http://stasis.me) statically generates the client side:
 
-* [Stasis](http://stasis.me)
-* [CoffeeScript](http://coffeescript.org)
-* [HAML](http://haml-lang.com)
-* [LESS](http://lesscss.org)
+* [Bootstrap](http://twitter.github.com/bootstrap)
+* [Haml](http://haml-lang.com/), [Sass](http://sass-lang.com), [CoffeeScript](http://coffeescript.org), and [lots of other languages](http://stasis.me/#more)
+* [jQuery](http://jquery.com)
+* [Modernizr](http://modernizr.com/)
 * [SmartAsset](https://github.com/winton/smart_asset)
+* [Underscore](http://documentcloud.github.com/underscore)
 
 Process management:
 
@@ -50,3 +51,15 @@ Run `cake` in your project to see more cake tasks.
 * [backbone-redis](https://github.com/winton/node_template/tree/backbone-redis)
 
 Check each branch's README for installation instructions.
+
+## Contribute
+
+[Create an issue] to discuss template changes.
+
+Pull requests are much appreciated.
+
+## Follow
+
+[Watch this project](https://github.com/winton/node_template#) on Github.
+
+[Follow Winton Welsh](http://twitter.com/intent/user?screen_name=wintonius) on Twitter.

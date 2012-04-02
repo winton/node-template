@@ -46,7 +46,6 @@ task 'new', 'create a new project', (options) ->
         "git merge template/master"
         "cake install"
         "echo \"\n\\033[1;32mSuccess!\\033[0m\n\""
-        'echo  "\\033[1;33mAdd to ~/.profile:\\033[0m export PATH=\\"./node_modules/.bin:\\$PATH\\""'
         "echo \"\\033[1;33mStart your server:\\033[0m cd ../#{name} && cake start\n\""
       ].join(' && ')
       replaceProcess(cmd)
