@@ -1,2 +1,2 @@
-client: bin/client.sh
-server: bin/server.sh
+client: bin/client.sh start
+server: bin/server.sh start

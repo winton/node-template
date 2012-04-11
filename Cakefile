@@ -4,7 +4,7 @@ fs   = require('fs')
 # Helpers
 
 ask = (q, fn) ->
-  console.log("\n#{q}")
+  console.log("\n\033[1;33m#{q}\033[0m")
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on 'data', (path) ->
@@ -16,6 +16,15 @@ replaceProcess = (cmd) ->
   kexec("cd #{__dirname} && #{cmd}")
 
 # Tasks
+
+task 'bootstrap', 'update bootstrap', (options) ->
+  console.log [
+    "\n\033[1;31mIf you haven't already:\033[0m"
+    "\n  git clone git://github.com/twitter/bootstrap.git"
+    "\n  Modify less/bootstrap.less to customize package."
+  ].join("\n")
+  ask 'Where is your bootstrap clone?', (path) ->
+    replaceProcess("bin/client.sh bootstrap '#{path}'")
 
 task 'install', 'install dependencies', (options) ->
   invoke('install:node')
@@ -36,19 +45,7 @@ task 'new', 'create a new project', (options) ->
     url = url.match(/.+@github.com:.+\/(.+)\.git/)
     if url
       [ url, name ] = url
-      cmd = [
-        "cd ../"
-        "git init #{name}"
-        "cd #{name}"
-        "git remote add origin #{url}"
-        "git remote add template git://github.com/winton/node_template.git"
-        "git fetch template"
-        "git merge template/master"
-        "cake install"
-        "echo \"\n\\033[1;32mSuccess!\\033[0m\n\""
-        "echo \"\\033[1;33mStart your server:\\033[0m cd ../#{name} && cake start\n\""
-      ].join(' && ')
-      replaceProcess(cmd)
+      replaceProcess("bin/client.sh new '#{name}' '#{url}'")
     else
       console.log('Unrecognized Github repo SSH URL.')
 
