@@ -30,11 +30,18 @@ fi
 if [ $1 = 'bootstrap' ]; then
 	pwd=`pwd`
 	cd $2
+
 	rm -rf bootstrap
+	rm -rf $pwd/client/img/lib/bootstrap
+	rm -rf $pwd/client/js/lib/bootstrap
+	
+	mkdir -p $pwd/client/img/lib/bootstrap
+	mkdir -p $pwd/client/js/lib/bootstrap
+	
 	make bootstrap
+	
 	cp -f bootstrap/css/bootstrap.css $pwd/client/css/lib
 	cp -f bootstrap/css/bootstrap-responsive.css $pwd/client/css/lib
-	rm -rf $pwd/client/js/lib/bootstrap
-	mkdir -p $pwd/client/js/lib/bootstrap
 	cp -f js/*.js $pwd/client/js/lib/bootstrap
+	cp -f img/*.png $pwd/client/img/lib/bootstrap
 fi
