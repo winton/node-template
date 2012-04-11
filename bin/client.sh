@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # If command is 'start' and (development or no env specified)
-if [ $1 = 'start' ] && ([ "$NODE_ENV" = 'development' ] || [ -z "$STATE" ]); then
+if [ $1 = 'start' ] && ([ "$NODE_ENV" = 'development' ] || [ -z "$NODE_ENV" ]); then
 	cd client
 	stasis -p ../public -d
 fi
@@ -30,6 +30,7 @@ fi
 if [ $1 = 'bootstrap' ]; then
 	pwd=`pwd`
 	cd $2
+	rm -rf bootstrap
 	make bootstrap
 	cp -f bootstrap/css/bootstrap.css $pwd/client/css/lib
 	cp -f bootstrap/css/bootstrap-responsive.css $pwd/client/css/lib

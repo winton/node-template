@@ -17,4 +17,5 @@ javascripts:
 stylesheets:
   application:
     - lib/bootstrap
+    - lib/bootstrap-responsive
     - application
