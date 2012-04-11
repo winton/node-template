@@ -35,5 +35,5 @@ if [ $1 = 'bootstrap' ]; then
 	cp -f bootstrap/css/bootstrap-responsive.css $pwd/client/css/lib
 	rm -rf $pwd/client/js/lib/bootstrap
 	mkdir -p $pwd/client/js/lib/bootstrap
-	cp -f bootstrap/js/*.js $pwd/client/js/lib/bootstrap
+	cp -f js/*.js $pwd/client/js/lib/bootstrap
 fi
