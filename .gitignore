@@ -2,6 +2,7 @@
 *.gem
 .bundle
 .sass-cache
+client/Gemfile.lock
 dump.rdb
 node_modules
 pkg

@@ -30,7 +30,9 @@ Process management:
 
 * [RubyGems](http://rubygems.org)
 * [NPM](http://npmjs.org)
-* [CoffeeScript](http://coffeescript.org) - `npm install coffee-script`
+* [CoffeeScript](http://coffeescript.org) - `npm install coffee-script -g`
+* [Foreman](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html) - `gem install foreman`
+* [Stasis](http://stasis.me) - `gem install stasis`
 
 ##Start a new project
 
