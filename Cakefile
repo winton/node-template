@@ -4,7 +4,7 @@ fs   = require('fs')
 # Helpers
 
 ask = (q, fn) ->
-  console.log("\n\033[1;33m#{q}\033[0m")
+  console.log("\n\x1B[1;33m#{q}\x1B[0m")
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on 'data', (path) ->
@@ -19,7 +19,7 @@ replaceProcess = (cmd) ->
 
 task 'bootstrap', 'update bootstrap', (options) ->
   console.log [
-    "\n\033[1;31mIf you haven't already:\033[0m"
+    "\n\x1B[1;31mIf you haven't already:\x1B[0m"
     "\n  git clone git://github.com/twitter/bootstrap.git"
     "\n  Modify less/bootstrap.less to customize package."
   ].join("\n")

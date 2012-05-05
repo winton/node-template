@@ -23,7 +23,7 @@ if [ $1 = 'new' ]; then
 	git merge template/master && \
 	cake install && \
 	echo -e "\n\033[1;32mSuccess!\033[0m" && \
-	echo -e "\n\033[1;33mStart your server:\033[0m cd ../$1 && cake start\n"
+	echo -e "\n\033[1;33mStart your server:\033[0m cd ../$2 && cake start\n"
 fi
 
 # If command is 'bootstrap'
