@@ -1,8 +1,0 @@
-source :rubygems
-
-gem "coffee-script"
-gem "haml"
-gem "less"
-gem "smart_asset"
-gem "stasis"
-gem "therubyracer"
