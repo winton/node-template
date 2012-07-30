@@ -2,28 +2,22 @@
 
 Node.js project template.
 
-##Dependencies
+##Install
 
-* [Async](https://github.com/caolan/async)
-* [CoffeeScript](http://coffeescript.org)
-* [kexec](https://github.com/mattinsler/node-kexec)
-* [Mocha](http://visionmedia.github.com/mocha)
-* [Sinon](http://sinonjs.org)
-* [Underscore](http://documentcloud.github.com/underscore)
+	npm install node_template -g
 
-##Install these
+##Create a new project
 
-* [NPM](http://npmjs.org)
-* [CoffeeScript](http://coffeescript.org) - `npm install coffee-script -g`
-* [Kexec](https://github.com/jprichardson/node-kexec) - `npm install kexec -g`
+	node_template my_project
+	cd my_project
 
-##Start a new project
+##Compile CoffeeScript (watch ./src)
 
-	git clone git@github.com:winton/node_template.git
-	cd node_template
-	cake new
+	npm start
 
-Follow the instructions at the end.
+##Run tests
+
+	npm test
 
 ##Template branches
 
@@ -32,7 +26,59 @@ Follow the instructions at the end.
 * [express-backbone-everyauth](https://github.com/winton/node_template/tree/express-backbone-everyauth)
 * [express-backbone-redis](https://github.com/winton/node_template/tree/express-backbone-redis)
 
-Check each branch's README for installation instructions.
+To use a template branch:
+
+	node_template -b express my_project
+
+Multiple branches are okay:
+
+	node_template -b express-backbone-everyauth -b express-backbone-redis my_project
+
+##Dependencies
+
+###Production
+
+* [Async](https://github.com/caolan/async)
+* [Underscore](http://documentcloud.github.com/underscore)
+
+###Development
+
+* [CoffeeScript](http://coffeescript.org)
+* [Mocha](http://visionmedia.github.com/mocha)
+* [Sinon](http://sinonjs.org)
+
+
+##Dependency Lifecycle
+
+###Install
+
+Install [shrinkwrapped](http://npmjs.org/doc/shrinkwrap.html) and/or new dependencies:
+
+	cake install
+
+This runs automatically upon creating a project.
+
+###Outdated
+
+Display a list of out of date dependencies:
+
+	cake outdated
+
+###Update
+
+####All:
+
+	cake update
+
+####Some:
+
+	cake update -d async,coffeescript
+
+###Publish
+
+Shrinkwraps, commits, and tags with version:
+
+	cake publish
 
 ## Contribute
 
