@@ -1,19 +1,18 @@
+{ exec } = require "child_process"
+
+require "colors"
+
 common = require "../lib/node_template/common"
 _ = common.underscore
-{ exec } = require "child_process"
 
 # Helper methods
 
 ask = (q, fn) ->
-  console.log yellow("\n#{q}")
+  console.log "\n#{q}".bold.yellow
   process.stdin.resume()
   process.stdin.setEncoding "utf8"
   process.stdin.on "data", (path) ->
     fn path.replace(/\s+$/, "")
-
-green = (str) -> "\u001b[1;32m#{str}\u001b[0m"
-red = (str) -> "\u001b[1;31m#{str}\u001b[0m"
-yellow = (str) -> "\u001b[1;33m#{str}\u001b[0m"
 
 # Overwrite files to remove node_template code
 
@@ -44,13 +43,13 @@ if names.length
         body = body.replace(/\n/g, "\\n").replace(/"/g, "\\\"")
         commands.push "echo \"#{body}\" > #{path}"
 
-      console.log yellow("\nExecuting:")
+      console.log "\nExecuting:".bold.yellow
       _.each commands, (command) -> console.log(command)
       
       exec commands.join(' && '), (error, stdout, stderr) ->
         if error
-          console.log red("\nError :(")
+          console.log "\nError :(".bold.red
           console.log stderr
         else
-          console.log green("\nSuccess :)\n")
+          console.log "\nSuccess :)\n".bold.green
         process.exit()

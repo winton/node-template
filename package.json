@@ -11,6 +11,8 @@
 	"devDependencies": {
 		"chai": "",
 		"coffee-script": "",
+		"colors": "",
+		"glob": "",
 		"mocha": "",
 		"sinon": ""
 	},

@@ -44,11 +44,10 @@ Multiple branches are okay:
 ###Development
 
 * [CoffeeScript](http://coffeescript.org)
+* [Colors.js](https://github.com/marak/colors.js)
+* [Glob](https://github.com/isaacs/node-glob)
 * [Mocha](http://visionmedia.github.com/mocha)
 * [Sinon](http://sinonjs.org)
-
-
-##Dependency Lifecycle
 
 ###Install
 
@@ -58,23 +57,7 @@ Install [shrinkwrapped](http://npmjs.org/doc/shrinkwrap.html) and/or new depende
 
 This runs automatically upon creating a project.
 
-###Outdated
-
-Display a list of out of date dependencies:
-
-	cake outdated
-
-###Update
-
-####All:
-
-	cake update
-
-####Some:
-
-	cake update -d async,coffeescript
-
-###Publish
+##Publish
 
 Shrinkwraps, commits, and tags with version:
 
