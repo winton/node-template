@@ -2,7 +2,7 @@
 
 require "colors"
 
-common = require "../lib/node_template/common"
+common = require "../lib/node-template/common"
 _ = common.underscore
 
 # Helper methods
@@ -14,13 +14,13 @@ ask = (q, fn) ->
   process.stdin.on "data", (path) ->
     fn path.replace(/\s+$/, "")
 
-# Overwrite files to remove node_template code
+# Overwrite files to remove node-template code
 
 overwrite =
-  "bin/node_template": """
+  "bin/node-template": """
     #!/usr/bin/env node
 
-    require("../lib/node_template");
+    require("../lib/node-template");
     """
 
 # Create projects
@@ -31,12 +31,12 @@ if names.length
   ask "What is your Github username?", (login) ->
     _.each names, (name) ->
       commands = [
-        "git clone git://github.com/winton/node_template.git #{name}"
+        "git clone git://github.com/winton/node-template.git #{name}"
         "cd #{name}"
         "git remote rm origin"
         "git remote add origin git@github.com:#{login}/#{name}.git"
         "npm install"
-        "rm bin/node_template.coffee"
+        "rm bin/node-template.coffee"
       ]
       
       _.each overwrite, (body, path) ->
@@ -52,4 +52,10 @@ if names.length
           console.log stderr
         else
           console.log "\nSuccess :)\n".bold.green
+
+        glob "#{name}/**/node-template*", options, (e, paths) ->
+          name = path.basename(__dirname)
+          _.each paths, (path) ->
+            spawn "mv", [ path, path.replace('node-template', name) ]
+
         process.exit()

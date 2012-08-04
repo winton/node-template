@@ -1,5 +1,5 @@
 {
-  "name": "node_template",
+  "name": "node-template",
   "version": "0.1.0",
   "dependencies": {
     "async": {

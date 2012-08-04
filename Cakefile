@@ -86,9 +86,3 @@ task 'publish', 'publish package to NPM', ->
                 # Push repo and tags
                 console.log "Pushing shrinkwrap commit and tags...".bold.yellow
                 exec "git push && git push --tags", catchError()
-
-task 'rename', 'rename the project', (options) ->
-  glob "**/node_template*", options, (e, paths) ->
-    name = path.basename(__dirname)
-    _.each paths, (path) ->
-      spawn "mv", [ path, path.replace('node_template', name) ]

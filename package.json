@@ -6,13 +6,13 @@
 	},
 	"dependencies": {
 		"async": "",
+		"glob": "",
 		"underscore": ""
 	},
 	"devDependencies": {
 		"chai": "",
 		"coffee-script": "",
 		"colors": "",
-		"glob": "",
 		"mocha": "",
 		"sinon": ""
 	},

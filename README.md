@@ -4,12 +4,13 @@ Node.js project template.
 
 ##Install
 
-	npm install node_template -g
+	npm install coffee-script node-template -g
 
 ##Create a new project
 
-	node_template my_project
+	node-template my_project
 	cd my_project
+	npm install
 
 ##Compile CoffeeScript (watch ./src)
 
@@ -21,18 +22,18 @@ Node.js project template.
 
 ##Template branches
 
-* [express](https://github.com/winton/node_template/tree/express)
-* [express-backbone](https://github.com/winton/node_template/tree/express-backbone)
-* [express-backbone-everyauth](https://github.com/winton/node_template/tree/express-backbone-everyauth)
-* [express-backbone-redis](https://github.com/winton/node_template/tree/express-backbone-redis)
+* [express](https://github.com/winton/node-template/tree/express)
+* [express-backbone](https://github.com/winton/node-template/tree/express-backbone)
+* [express-backbone-everyauth](https://github.com/winton/node-template/tree/express-backbone-everyauth)
+* [express-backbone-redis](https://github.com/winton/node-template/tree/express-backbone-redis)
 
 To use a template branch:
 
-	node_template -b express my_project
+	node-template -b express my_project
 
 Multiple branches are okay:
 
-	node_template -b express-backbone-everyauth -b express-backbone-redis my_project
+	node-template -b express-backbone-everyauth -b express-backbone-redis my_project
 
 ##Dependencies
 
@@ -65,12 +66,12 @@ Shrinkwraps, commits, and tags with version:
 
 ## Contribute
 
-[Create an issue](https://github.com/winton/node_template/issues/new) to discuss template changes.
+[Create an issue](https://github.com/winton/node-template/issues/new) to discuss template changes.
 
 Pull requests for template changes and new branches are even better.
 
 ## Stay up to date
 
-[Watch this project](https://github.com/winton/node_template#) on Github.
+[Watch this project](https://github.com/winton/node-template#) on Github.
 
 [Follow Winton Welsh](http://twitter.com/intent/user?screen_name=wintonius) on Twitter.
