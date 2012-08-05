@@ -23,7 +23,7 @@ task 'install', 'install shrinkwrapped and/or new dependencies', ->
   commands = [
     "rm -rf node_modules"
     "npm install"
-    "rm npm-shrinkwrap.json"
+    "rm -f npm-shrinkwrap.json"
     "npm install"
     "npm shrinkwrap"
   ]

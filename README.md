@@ -8,9 +8,8 @@ Node.js project template.
 
 ##Create a new project
 
-	node-template my_project
-	cd my_project
-	npm install
+	node-template my-project
+	cd my-project
 
 ##Compile CoffeeScript (watch ./src)
 
