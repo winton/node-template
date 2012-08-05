@@ -1,8 +1,8 @@
 {
-	"name": "node_template",
+	"name": "node-template",
 	"version": "0.1.0",
 	"bin": {
-		"node_template": "./bin/node_template"
+		"node-template": "./bin/node-template"
 	},
 	"dependencies": {
 		"async": "",
