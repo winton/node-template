@@ -22,39 +22,39 @@ describe "NodeTemplate", ->
             fn('user')
           done: done
 
-    it "should ask for a Github username", ->
+    it "asks for a Github username", ->
       question.should.equal("What is your Github username?")
 
-    it "should clone github repo", ->
+    it "clones github repo", ->
       stats = fs.lstatSync("#{__dirname}/fixture")
       stats.isDirectory().should.equal(true)
 
-    it "should update remote origin", ->
+    it "updates remote origin", ->
       config = fs.readFileSync "#{__dirname}/fixture/.git/config"
       config
         .toString()
         .indexOf("github.com:user/fixture.git")
         .should.not.equal(-1)
 
-    it "should run cake install", ->
+    it "runs cake install", ->
       stats = fs.statSync("#{__dirname}/fixture/node_modules")
       stats.isDirectory().should.equal(true)
       stats = fs.statSync("#{__dirname}/fixture/npm-shrinkwrap.json")
       stats.isFile().should.equal(true)
 
-    it "should remove bin/node-template.coffee", ->
+    it "removes bin/node-template.coffee", ->
       exists = fs.existsSync("#{__dirname}/fixture/bin/node-template.coffee")
       exists.should.equal(false)
       exists = fs.existsSync("#{__dirname}/fixture/bin/fixture.coffee")
       exists.should.equal(false)
 
-    it "should remove test/node-template.coffee", ->
+    it "removes test/node-template.coffee", ->
       exists = fs.existsSync("#{__dirname}/fixture/test/node-template.coffee")
       exists.should.equal(false)
       exists = fs.existsSync("#{__dirname}/fixture/test/fixture.coffee")
       exists.should.equal(false)
 
-    it "should overwrite certain files", ->
+    it "overwrites certain files", ->
       _.each bin.overwrite, (body, path) ->
         body = "#{body}\n"
         path = Bin.renamePath("#{__dirname}/fixture/#{path}", "fixture")
