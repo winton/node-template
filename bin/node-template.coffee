@@ -35,6 +35,7 @@ module.exports = class Bin
             "cd #{name}"
             "git remote rm origin"
             "git remote add origin git@github.com:#{login}/#{name}.git"
+            "rm npm-shrinkwrap.json"
             "npm install"
             "rm bin/node-template.coffee"
             "rm test/node-template.coffee"
