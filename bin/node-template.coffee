@@ -35,7 +35,7 @@ module.exports = class Bin
             "cd #{name}"
             "git remote rm origin"
             "git remote add origin git@github.com:#{login}/#{name}.git"
-            "cake install"
+            "npm install"
             "rm bin/node-template.coffee"
             "rm test/node-template.coffee"
           ]
