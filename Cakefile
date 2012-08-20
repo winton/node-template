@@ -85,4 +85,9 @@ task 'publish', 'publish package to NPM', ->
 
                 # Push repo and tags
                 console.log "Pushing shrinkwrap commit and tags...".bold.yellow
-                exec "git push && git push --tags", catchError()
+                exec "git push && git push --tags", catchError ->
+
+                  # Publish
+                  commands = [ "npm publish" ]
+                  executing(commands)
+                  exec commands.join(' && '), catchError
