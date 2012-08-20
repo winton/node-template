@@ -1,23 +1,27 @@
 {
-	"name": "node-template",
+	"name"   : "node-template",
 	"version": "0.1.2",
-	"bin": {
-		"node-template": "./bin/node-template"
-	},
+	"bin"    : { "node-template": "./bin/node-template" },
 	"dependencies": {
-		"async": "",
-		"glob": "",
-		"underscore": ""
+		"async"        : "",
+		"backbone"     : "",
+		"connect-redis": "",
+		"express"      : "",
+		"glob"         : "",
+		"nodetime"     : "",
+		"redis"        : "",
+		"underscore"   : ""
 	},
 	"devDependencies": {
-		"chai": "",
+		"chai"         : "",
 		"coffee-script": "",
-		"colors": "",
-		"mocha": "",
-		"sinon": ""
+		"colors"       : "",
+		"mocha"        : "",
+		"sinon"        : "",
+		"supervisor"   : ""
 	},
 	"scripts": {
-		"start": "coffee -o lib -cw src",
-		"test": "mocha test/test.js --reporter spec"
+		"start": "supervisor -e 'js|coffee' -w 'lib,node_modules' lib/server.js",
+		"test" : "mocha test/test.js --reporter spec"
 	}
 }
