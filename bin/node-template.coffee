@@ -94,11 +94,6 @@ module.exports = class Bin
               _.each paths, (path) ->
                 commands.push "mv #{path} #{Bin.renamePath(path, name)}"
 
-              commands = commands.concat [
-                "cd #{dir}#{name}"
-                "([[ -f src ]] && coffee -o lib -c src || true)"
-              ]
-
               @executing(commands)
 
               exec commands.join(' && '), @catchError =>
