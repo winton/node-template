@@ -8,7 +8,22 @@ _ = require "underscore"
 module.exports = class Bin
   constructor: (options={}) ->
 
-    names = process.argv.splice(2)
+    args     = process.argv.splice(2)
+    names    = []
+    branches = []
+    skip     = false
+
+    _.each args, (arg, index) ->
+      if skip
+        skip = false
+        return
+
+      if arg == '-b'
+        branches.push(args[index + 1])
+        skip = true
+      else
+        names.push(arg)
+
 
     if names.length
       
@@ -33,10 +48,17 @@ module.exports = class Bin
           commands = commands.concat [
             "git clone git://github.com/winton/node-template.git #{name}"
             "cd #{name}"
-            "git remote rm origin"
+            "git remote rename origin node-template"
+            "git fetch node-template"
             "git remote add origin git@github.com:#{login}/#{name}.git"
+          ]
+
+          if branches.length
+            commands = commands.concat _.map branches.sort(), (branch) ->
+              "git merge node-template/#{branch}"
+
+          commands = commands.concat [
             "rm npm-shrinkwrap.json"
-            "npm install"
             "rm bin/node-template.coffee"
             "rm test/node-template.coffee"
           ]
@@ -57,7 +79,7 @@ module.exports = class Bin
           
           _.each @overwrite, (body, path) ->
             body = body.replace(/\n/g, "\\n").replace(/"/g, "\\\"")
-            commands.push "echo \"#{body}\" > #{path}"
+            commands.push "([[ -f #{path} ]] && echo \"#{body}\" > #{path} || true)"
 
           @executing(commands)
           
@@ -74,14 +96,20 @@ module.exports = class Bin
 
               commands = commands.concat [
                 "cd #{dir}#{name}"
-                "coffee -o lib -c src"
-                "cd #{cwd}"
+                "([[ -f src ]] && coffee -o lib -c src || true)"
               ]
 
               @executing(commands)
 
-              exec commands.join(' && '), @catchError ->
-                if options.done then options.done() else process.exit()
+              exec commands.join(' && '), @catchError =>
+                commands = [
+                  "cd #{dir}#{name}"
+                  "cake install"
+                  "cd #{cwd}"
+                ]
+                @executing(commands)
+                exec commands.join(' && '), ->
+                  if options.done then options.done() else process.exit()
 
   ask: (q, fn) ->
     console.log "\n#{q}".bold.yellow
