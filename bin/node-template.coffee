@@ -1,9 +1,10 @@
 { exec } = require "child_process"
-path = require "path"
+fs       = require "fs"
+path     = require "path"
 
-require "colors"
-glob = require "glob"
-_ = require "underscore"
+colors   = require "colors"
+glob     = require "glob"
+_        = require "underscore"
 
 module.exports = class Bin
   constructor: (options={}) ->
@@ -63,51 +64,57 @@ module.exports = class Bin
             "rm test/node-template.coffee"
           ]
 
-          # Overwrite files to remove node-template code
-
-          @overwrite =
-            "bin/node-template": """
-              #!/usr/bin/env node
-
-              require("../lib/#{name}");
-              """
-            "src/node-template.coffee": """
-              common = require './#{name}/common'
-              async  = common.async
-              _  = common.underscore
-              """
-          
-          _.each @overwrite, (body, path) ->
-            body = body.replace(/\n/g, "\\n").replace(/"/g, "\\\"")
-            commands.push "echo \"#{body}\" > #{path}"
-
           @executing(commands)
           
           exec commands.join(' && '), @catchError =>
 
-            dir = if dir then "#{dir}/" else ""
-            cwd = process.cwd()
-
+            dir      = if dir then "#{dir}/" else ""
             commands = []
+            cwd      = process.cwd()
 
             glob "#{dir}#{name}/**/node-template*", (e, paths) =>
               _.each paths, (path) ->
                 commands.push "mv #{path} #{Bin.renamePath(path, name)}"
 
-              commands = commands.concat [
-                "cd #{dir}#{name}"
-                "coffee -o lib -c src"
-              ]
-
               @executing(commands)
 
               exec commands.join(' && '), @catchError =>
-                commands = [
-                  "cd #{dir}#{name}"
+
+                commands = [ "cd #{dir}#{name}" ]
+
+                # Overwrite files to remove node-template code
+
+                overwrite = {}
+
+                overwrite["bin/#{name}"] =
+                  """
+                  #!/usr/bin/env node
+
+                  require("../lib/#{name}");
+                  """
+
+                overwrite["src/#{name}.coffee"] =
+                  """
+                  common = require './#{name}/common'
+                  async  = common.async
+                  _  = common.underscore
+                  """
+              
+                _.each overwrite, (body, path) ->
+                  if fs.existsSync("#{dir}#{name}/#{path}")
+                    body = body.replace(/\n/g, "\\n").replace(/"/g, "\\\"")
+                    commands.push "echo \"#{body}\" > #{path}"
+
+                if fs.existsSync("#{dir}#{name}/src")
+                  commands.push("coffee -o lib -c src")
+
+                commands = commands.concat [
                   "cake install"
                   "cd #{cwd}"
                 ]
+
                 @executing(commands)
+                
                 exec commands.join(' && '), ->
                   if options.done then options.done() else process.exit()
 
