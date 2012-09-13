@@ -79,7 +79,7 @@ module.exports = class Bin
           
           _.each @overwrite, (body, path) ->
             body = body.replace(/\n/g, "\\n").replace(/"/g, "\\\"")
-            commands.push "([[ -f #{path} ]] && echo \"#{body}\" > #{path} || true)"
+            commands.push "echo \"#{body}\" > #{path}"
 
           @executing(commands)
           
@@ -96,7 +96,7 @@ module.exports = class Bin
 
               commands = commands.concat [
                 "cd #{dir}#{name}"
-                "([[ -f src ]] && coffee -o lib -c src || true)"
+                "coffee -o lib -c src"
               ]
 
               @executing(commands)
@@ -122,6 +122,8 @@ module.exports = class Bin
     (error, stdout, stderr) ->
       if error
         console.log "\nError :(".bold.red
+        console.log error
+        console.log stdout
         console.log stderr
       else
         console.log "\nSuccess :)\n".bold.green
