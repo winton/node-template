@@ -6,6 +6,14 @@ path = require "path"
 require "colors"
 _ = require "underscore"
 
+ask = (q, fn) ->
+  console.log("\n#{q}".bold.yellow)
+  process.stdin.resume();
+  process.stdin.setEncoding('utf8');
+  process.stdin.on 'data', (path) ->
+    console.log('')
+    fn(path.replace(/\s+$/, ''))
+
 catchError = (successFn) ->
   (error, stdout, stderr) ->
     if error
@@ -13,11 +21,42 @@ catchError = (successFn) ->
       console.log stderr
     else
       console.log "\nSuccess :)\n".bold.green
-      successFn(error, stdout, stderr) if successFn
+      if successFn
+        successFn(error, stdout, stderr)
+      else
+        process.exit()
 
 executing = (commands) ->
   console.log "\nExecuting:".bold.yellow
   _.each commands, (command) -> console.log(command)
+
+task 'bootstrap', 'upgrade bootstrap', ->
+  console.log [
+    "\nIf you haven't already:".bold.yellow
+    "\n  git clone git://github.com/twitter/bootstrap.git"
+    "\n  Modify less/bootstrap.less to customize package."
+  ].join("\n")
+
+  ask 'Where is your bootstrap clone?', (path) ->
+    
+    commands = [
+      "rm -rf client/img/lib/bootstrap"
+      "rm -rf client/js/lib/bootstrap"
+
+      "mkdir -p client/img/lib/bootstrap"
+      "mkdir -p client/js/lib/bootstrap"
+
+      "cd #{path}"
+      "make bootstrap"
+
+      "cd #{process.cwd()}"
+      "cp -f #{path}/bootstrap/css/bootstrap.css client/css/lib"
+      "cp -f #{path}/js/*.js client/js/lib/bootstrap"
+      "cp -f #{path}/img/*.png client/img/lib/bootstrap"
+    ]
+
+    executing(commands)
+    exec commands.join(" && "), catchError()
 
 task 'install', 'install shrinkwrapped and/or new dependencies', ->
   commands = [
