@@ -6,6 +6,7 @@
 	},
 	"dependencies": {
 		"async": "",
+		"backbone": "",
 		"colors": "",
 		"glob": "",
 		"underscore": ""
