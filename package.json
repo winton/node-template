@@ -14,7 +14,8 @@
 		"chai"         : "",
 		"coffee-script": "",
 		"mocha": "",
-		"sinon": ""
+		"sinon": "",
+		"supervisor": ""
 	},
 	"scripts": {
 		"start": "supervisor -e 'js|coffee' -w 'lib,node_modules' lib/server.js",
