@@ -51,6 +51,7 @@ task 'bootstrap', 'upgrade bootstrap', ->
 
       "cd #{process.cwd()}"
       "cp -f #{path}/bootstrap/css/bootstrap.css client/css/lib"
+      "cp -f #{path}/bootstrap/css/bootstrap-responsive.css client/css/lib"
       "cp -f #{path}/js/*.js client/js/lib/bootstrap"
       "cp -f #{path}/img/*.png client/img/lib/bootstrap"
     ]
