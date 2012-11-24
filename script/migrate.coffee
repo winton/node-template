@@ -1,34 +1,39 @@
 # Common
 
-common = require('./common')
-eval("#{key} = value") for key, value of common
+require('../lib/common')(this)
 
-# Objects
+# Migrate direction
 
-pg  = common.setupPg()
-pg2 = common.setupPg()
+process.env.MIGRATE = migrate = process.argv[2] || 'up'
 
-# Functions
+# Run migrations
 
-migrateTable = (name, cols) ->
-  cmd = process.argv[2] || 'up'
+@createDatabase().then(
+  =>
+    migrations = [
+      =>
+        @createTable(
+          "models"
+          [ "name VARCHAR(128)" ]
+        )
+      =>
+        @addColumns(
+          "models"
+          [ "test VARCHAR(128)" ]
+        )
+    ]
 
-  promise (resolve, reject) ->
-    if cmd == 'up'
-      sql = "CREATE TABLE #{name} (id SERIAL, #{cols.join(", ")});"
-    else if cmd == 'down'
-      sql = "DROP TABLE IF EXISTS #{name};"
-    
-    pg.query sql, (err, result) ->
-      console.log("Migrated #{name} #{cmd}")
-      resolve()
+    if migrate == 'down'
+      migrations = migrations.reverse()
 
-# Runtime
+    run = @Q.resolve()
 
-pg2.query "CREATE DATABASE #{config.pg.db};", (err, result) ->
-  migrateTable(
-    "models"
-    [ "name VARCHAR(128)" ]
-  ).then(
-    -> process.exit()
-  )
+    @_.each migrations, (fn) ->
+      run = run.then(fn)
+
+    run
+).then(
+  =>
+    console.log("")
+    process.exit()
+).done()

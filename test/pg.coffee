@@ -1,7 +1,6 @@
 # Common
 
-common = require('./common')
-eval("#{key} = value") for key, value of common
+require('./common')(this)
 
 # Run if adapter active
 

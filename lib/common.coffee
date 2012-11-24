@@ -1,3 +1,4 @@
+require('colors')
 _  = require('underscore')
 
 module.exports = (instance) ->
