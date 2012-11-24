@@ -1,11 +1,6 @@
 node_env = process.env.NODE_ENV ||= 'development'
 port     = process.env.PORT     ||= if node_env == 'development' then 8080 else 80
 
-# require('nodetime').profile(
-#   accountKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-#   appName   : "NodeTemplate (#{node_env})"
-# )
-
 app     = require('./app.coffee')
 cluster = require('cluster')
 cpus    = require('os').cpus().length

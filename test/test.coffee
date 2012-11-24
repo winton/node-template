@@ -1,6 +1,7 @@
 require("chai").should()
+
 glob = require "glob"
-_ = require "underscore"
+_    = require "underscore"
 
 describe "Setup", ->
   before (done) ->

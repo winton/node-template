@@ -6,12 +6,15 @@
 	},
 	"dependencies": {
 		"async": "",
-		"backbone": "",
+		"backbone-postgresql": "git://github.com/winton/backbone-postgresql.git#release",
 		"colors": "",
 		"connect-redis": "",
 		"express": "",
 		"glob": "",
+		"pg": "",
+		"q": "",
 		"redis": "",
+		"request": "",
 		"underscore": ""
 	},
 	"devDependencies": {
