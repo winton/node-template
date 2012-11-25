@@ -1,12 +1,12 @@
 {
 	"adapter": "pg",
 	"pg": {
-        "db"  : "node-template",
-        "host": "root:@localhost"
-    },
+		"db"  : "node-template",
+		"host": "root:@localhost"
+	},
 	"redis": {
 		"host": "localhost",
 		"port": 6379
 	},
-    "secret": ";node-template!@#$%^&*(69)"
+	"secret": ";node-template!@#$%^&*(69)"
 }
