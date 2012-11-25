@@ -1,6 +1,10 @@
 #NodeTemplate
 
-Node.js project template.
+Node.js package template.
+
+##Looking for a web app template?
+
+You'll want to check out the [express branch](https://github.com/winton/node-template/tree/express).
 
 ##Install
 
@@ -19,33 +23,19 @@ Node.js project template.
 
 	npm test
 
-##Template branches
-
-* [express](https://github.com/winton/node-template/tree/express)
-* [express-backbone](https://github.com/winton/node-template/tree/express-backbone)
-* [express-backbone-everyauth](https://github.com/winton/node-template/tree/express-backbone-everyauth)
-* [express-backbone-redis](https://github.com/winton/node-template/tree/express-backbone-redis)
-
-To use a template branch:
-
-	node-template -b express my_project
-
-Multiple branches are okay:
-
-	node-template -b express-backbone-everyauth -b express-backbone-redis my_project
-
 ##Dependencies
 
 ###Production
 
 * [Async](https://github.com/caolan/async)
+* [Colors.js](https://github.com/marak/colors.js)
+* [Glob](https://github.com/isaacs/node-glob)
 * [Underscore](http://documentcloud.github.com/underscore)
 
 ###Development
 
+* [Chai](http://chaijs.com)
 * [CoffeeScript](http://coffeescript.org)
-* [Colors.js](https://github.com/marak/colors.js)
-* [Glob](https://github.com/isaacs/node-glob)
 * [Mocha](http://visionmedia.github.com/mocha)
 * [Sinon](http://sinonjs.org)
 
