@@ -16,6 +16,7 @@
 		"mocha": "",
 		"sinon": ""
 	},
+	"preferGlobal": "true",
 	"scripts": {
 		"start": "coffee -o lib -cw src",
 		"test": "mocha test/test.js --reporter spec"
