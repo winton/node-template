@@ -34,8 +34,8 @@ Node.js package template.
 * [Express](http://expressjs.com)
 * [Glob](https://github.com/isaacs/node-glob)
 * [Node Postgres](https://github.com/brianc/node-postgres)
-* [Q](https://github.com/kriskowal/q)
 * [Node Redis](https://github.com/mranney/node_redis)
+* [Q](https://github.com/kriskowal/q)
 * [Request](https://github.com/mikeal/request)
 * [Underscore](http://documentcloud.github.com/underscore)
 
