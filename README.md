@@ -2,20 +2,16 @@
 
 Node.js package template.
 
-##Looking for a web app template?
-
-You'll want to check out the [express branch](https://github.com/winton/node-template/tree/express).
-
 ##Install
 
 	npm install coffee-script node-template -g
 
 ##Create a new project
 
-	node-template my-project
+	node-template -b express my-project
 	cd my-project
 
-##Compile CoffeeScript (watch ./src)
+##Start node web server
 
 	npm start
 
@@ -28,8 +24,15 @@ You'll want to check out the [express branch](https://github.com/winton/node-tem
 ###Production
 
 * [Async](https://github.com/caolan/async)
+* [Backbone Postgresql](https://github.com/winton/backbone-postgresql)
 * [Colors.js](https://github.com/marak/colors.js)
+* [Connect Redis](https://github.com/visionmedia/connect-redis)
+* [Express](http://expressjs.com)
 * [Glob](https://github.com/isaacs/node-glob)
+* [Node Postgres](https://github.com/brianc/node-postgres)
+* [Q](https://github.com/kriskowal/q)
+* [Node Redis](https://github.com/mranney/node_redis)
+* [Request](https://github.com/mikeal/request)
 * [Underscore](http://documentcloud.github.com/underscore)
 
 ###Development
@@ -38,6 +41,7 @@ You'll want to check out the [express branch](https://github.com/winton/node-tem
 * [CoffeeScript](http://coffeescript.org)
 * [Mocha](http://visionmedia.github.com/mocha)
 * [Sinon](http://sinonjs.org)
+* [Supervisor](https://github.com/isaacs/node-supervisor)
 
 ###Install
 
@@ -46,12 +50,6 @@ Install [shrinkwrapped](http://npmjs.org/doc/shrinkwrap.html) and/or new depende
 	cake install
 
 This runs automatically upon creating a project.
-
-##Publish
-
-Shrinkwraps, commits, and tags with version:
-
-	cake publish
 
 ## Contribute
 
