@@ -1,44 +1,48 @@
 # Common
 
-require('./common')(this)
+require('../lib/common')(this)
 
 # Run if adapter active
 
-if config.adapter == 'pg'
+if @config.adapter == 'pg'
 
   # Specs
 
-  describe 'Postgres', ->
+  describe 'Postgres', =>
 
     last_id = null
 
-    findOrCreate = ->
-      Model.findOrCreateBy(name: 'test')
+    findOrCreate = =>
+      @Model.findOrCreateBy(name: 'test')
 
-    testRows = (rows) ->
+    testRows = (rows) =>
       rows.length.should.equal 1
       rows[0].name.should.equal 'test'
 
-    before (done) ->
-      pg.query "DELETE from repos", -> done()
+    before (done) =>
+      @query("DELETE from models").then(
+        -> done()
+      )
 
-    describe 'beforeEach', ->
-      it 'should create test repo', (done) ->
+    describe 'beforeEach', =>
+      it 'should create test model', (done) =>
         findOrCreate().then(
-          (repo) ->
-            pg.query "SELECT * FROM repos", (e, result) ->
-              rows = result.rows
-              last_id = rows[0].id
-              testRows(rows)
-              done()
+          (repo) => @query("SELECT * FROM models")
+        ).then(
+          (result) =>
+            rows = result.rows
+            last_id = rows[0].id
+            testRows(rows)
+            done()
         )
 
-      it 'should find the existing test repo', (done) ->
+      it 'should find the existing test model', (done) =>
         findOrCreate().then(
-          (repo) ->
-            pg.query "SELECT * FROM repos", (e, result) ->
-              rows = result.rows
-              last_id.should.equal(rows[0].id)
-              testRows(rows)
-              done()
+          (repo) => @query("SELECT * FROM models")
+        ).then(
+          (result) =>
+            rows = result.rows
+            last_id.should.equal(rows[0].id)
+            testRows(rows)
+            done()
         )

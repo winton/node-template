@@ -4,6 +4,9 @@ _        = require('underscore')
 module.exports = (Backbone) ->
   class Collection extends Backbone.Collection
 
+    model  : require('./model')(Backbone)
+    urlRoot: '/models'
+
     destroyAll: (fn) ->
       fns = @map (record) ->
         (callback) -> record.destroy success: -> callback(null)

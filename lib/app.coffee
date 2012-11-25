@@ -8,8 +8,7 @@ module.exports = @app
 
 # Actions
 
-@app.get '/up', (req, res) ->
+@app.get '/up', (req, res) =>
   res.send(
-    app  : true
-    redis: redis.ping()
+    redis: @redis.ping()
   )

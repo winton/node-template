@@ -1,10 +1,10 @@
 # Common
 
-require('./common')(this)
+require('../lib/common')(this)
 
 # Run if adapter active
 
-if config.adapter == 'redis'
+if @config.adapter == 'redis'
 
   # Specs
 

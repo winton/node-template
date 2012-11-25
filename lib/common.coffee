@@ -1,5 +1,6 @@
 require('colors')
 _  = require('underscore')
+pg = require('pg').native
 
 module.exports = (instance) ->
 
@@ -86,12 +87,25 @@ module.exports = (instance) ->
   # Postgres adapter
 
   if config.adapter == 'pg'
-    common.Backbone   = require('backbone-postgresql')
-    common.Collection = require('./backbone/collection-pg')(common.Backbone)
-    common.Model      = require('./backbone/model')(common.Backbone)
-
+    common.Backbone = require('backbone-postgresql')
     common.Backbone.pg_connector.config =
       db: "pg://#{config.pg.host}/#{config.pg.db}"
+
+    _.extend(
+      common
+      Collection: require('./backbone/collection-pg')(common.Backbone)
+      Model     : require('./backbone/model-pg')(common.Backbone)
+      query     : (sql, db) ->
+        common.promise (resolve, reject) ->
+          (db || common.pg).query sql, (e, result) ->
+            if e then reject(e) else resolve(result)
+      setupPg: (db) ->
+        client = new pg.Client("tcp://#{config.pg.host}/#{db || config.pg.db}")
+        client.connect()
+        client
+    )
+
+    common.pg = common.setupPg()
 
   # Redis adapter
 

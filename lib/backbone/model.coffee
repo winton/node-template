@@ -4,6 +4,8 @@ module.exports = (Backbone) ->
 
   class Model extends Backbone.Model
 
+    urlRoot: '/models'
+
     toJSON: (options, fn) ->
       json = super()
       if options && options.methods
