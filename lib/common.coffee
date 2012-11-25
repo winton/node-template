@@ -101,7 +101,7 @@ module.exports = (instance) ->
             if e then reject(e) else resolve(result)
       setupPg: (db) ->
         client = new pg.Client("tcp://#{config.pg.host}/#{db || config.pg.db}")
-        client.connect()
+        client.connect(->)
         client
     )
 
