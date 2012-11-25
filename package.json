@@ -24,6 +24,7 @@
 		"sinon": "",
 		"supervisor": ""
 	},
+	"preferGlobal": "true",
 	"scripts": {
 		"start": "supervisor -e 'js|coffee' -w 'lib,node_modules' lib/server.js",
 		"test" : "mocha test/test.js --reporter spec"
