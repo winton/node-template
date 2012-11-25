@@ -1,6 +1,6 @@
 {
   "name": "node-template",
-  "version": "0.1.7",
+  "version": "0.1.6",
   "dependencies": {
     "async": {
       "version": "0.1.22"
