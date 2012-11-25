@@ -1,6 +1,5 @@
 { exec } = require "child_process"
 fs = require "fs"
-glob = require "glob"
 path = require "path"
 
 require "colors"
