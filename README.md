@@ -11,6 +11,10 @@ Node.js package template.
 	node-template -b express my-project
 	cd my-project
 
+##Start client side generator
+
+	script/client
+
 ##Start node web server
 
 	npm start
@@ -41,6 +45,7 @@ Node.js package template.
 * [CoffeeScript](http://coffeescript.org)
 * [Mocha](http://visionmedia.github.com/mocha)
 * [Sinon](http://sinonjs.org)
+* [Stasis](http://stasis.me)
 * [Supervisor](https://github.com/isaacs/node-supervisor)
 
 ###Install

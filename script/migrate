@@ -1,3 +1,5 @@
+#!/usr/bin/env coffee
+
 # Common
 
 require('../lib/common')(this)
