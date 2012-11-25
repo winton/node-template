@@ -1,6 +1,6 @@
 # Common
 
-require('../lib/common')(this)
+require('../../lib/common')(this)
 
 # Run if adapter active
 
