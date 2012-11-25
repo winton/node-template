@@ -1,6 +1,6 @@
 #NodeTemplate
 
-Node.js package template.
+Node.js web app template.
 
 ##Install
 
