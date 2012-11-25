@@ -1,9 +1,16 @@
-{ exec } = require "child_process"
-fs = require "fs"
-path = require "path"
+exec = null
+fs   = null
+path = null
+_    = null
 
-require "colors"
-_ = require "underscore"
+try
+  { exec } = require "child_process"
+  fs = require "fs"
+  path = require "path"
+
+  require "colors"
+  _ = require "underscore"
+catch error
 
 ask = (q, fn) ->
   console.log("\n#{q}".bold.yellow)
@@ -19,15 +26,21 @@ catchError = (successFn) ->
       console.log "\nError :(".bold.red
       console.log stderr
     else
-      console.log "\nSuccess :)\n".bold.green
+      if "".red
+        console.log "\nSuccess :)\n".bold.green
+      else
+        console.log "\nSuccess :)\n"
       if successFn
         successFn(error, stdout, stderr)
       else
         process.exit()
 
 executing = (commands) ->
-  console.log "\nExecuting:".bold.yellow
-  _.each commands, (command) -> console.log(command)
+  if "".red
+    console.log "\nExecuting:".bold.yellow
+  else
+    console.log "\nExecuting:"
+  console.log(command) for command in commands
 
 task 'bootstrap', 'upgrade bootstrap', ->
   console.log [
@@ -61,9 +74,9 @@ task 'bootstrap', 'upgrade bootstrap', ->
 task 'install', 'install shrinkwrapped and/or new dependencies', ->
   commands = [
     "rm -rf node_modules"
-    "npm install"
+    "npm install --production"
     "rm -f npm-shrinkwrap.json"
-    "npm install"
+    "npm install --production"
     "npm shrinkwrap"
   ]
   executing(commands)
