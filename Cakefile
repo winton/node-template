@@ -59,6 +59,7 @@ task 'bootstrap', 'upgrade bootstrap', ->
       "mkdir -p client/js/lib/bootstrap"
 
       "cd #{path}"
+      "rm -rf bootstrap"
       "make bootstrap"
 
       "cd #{process.cwd()}"
