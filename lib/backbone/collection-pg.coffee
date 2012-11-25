@@ -5,7 +5,4 @@ module.exports = (Backbone) ->
   class CollectionPg extends Collection
 
     @findBy: (attributes) ->
-    	filter = {}
-    	for key, value of attributes
-    	  filter[key] = "'#{value}'"
-    	(new @).fetch(filter: filter)
+      (new @).fetch(filter: attributes)
