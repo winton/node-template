@@ -46,4 +46,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-rename"
   grunt.loadNpmTasks "grunt-text-replace"
 
-  grunt.registerTask 'default', [ 'watch' ]
+  grunt.registerTask 'default',  [ 'watch' ]
+  grunt.registerTask 'firstrun', [ 'replace', 'rename' ]
