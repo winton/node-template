@@ -30,7 +30,14 @@ module.exports = (grunt) ->
         src         : [ "**/*.coffee", "bin/node-template" ]
         overwrite   : true
         replacements: [
-          from: /[Nn]ode_?[Tt]emplate/g
+          from: /node_template/g
+          to  : "<%= pkg.name %>"
+        ]
+      NodeTemplate:
+        src         : [ "**/*.coffee", "bin/node-template" ]
+        overwrite   : true
+        replacements: [
+          from: /NodeTemplate/g
           to  : "<%= pkg.name %>"
         ]
 
