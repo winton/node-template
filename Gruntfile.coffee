@@ -1,5 +1,8 @@
 module.exports = (grunt) ->
 
+  grunt.toCamel = (str) ->
+    str.replace /((^|\-)[a-z])/g, ($1) -> $1.toUpperCase().replace('-','')
+
   grunt.initConfig
     coffee:
       glob_to_multiple:
@@ -12,7 +15,6 @@ module.exports = (grunt) ->
 
     pkg: grunt.file.readJSON("package.json")
 
-    # OK to remove after first use
     rename:
       node_template:
         src : "src/node-template.coffee"
@@ -24,22 +26,21 @@ module.exports = (grunt) ->
         src : "src/node-template"
         dest: "src/<%= pkg.name %>"
 
-    # OK to remove after first use
     replace:
       node_template:
-        src         : [ "**/*.coffee", "bin/node-template" ]
         overwrite   : true
-        replacements: [
-          from: /node_template/g
-          to  : "<%= pkg.name %>"
+        replacements: [ from: /node-template/g, to: "<%= pkg.name %>" ]
+        src         : replace_paths = [
+          "bin/*"
+          "Gruntfile.coffee"
+          "package.json"
+          "src/**/*.coffee"
+          "test/**/*.coffee"
         ]
       NodeTemplate:
-        src         : [ "**/*.coffee", "bin/node-template" ]
         overwrite   : true
-        replacements: [
-          from: /NodeTemplate/g
-          to  : "<%= pkg.name %>"
-        ]
+        replacements: [ from: /NodeTemplate/g, to: "<%= grunt.toCamel(pkg.name) %>" ]
+        src         : replace_paths
 
     watch:
       scripts:
@@ -54,4 +55,4 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-text-replace"
 
   grunt.registerTask 'default',  [ 'watch' ]
-  grunt.registerTask 'firstrun', [ 'replace', 'rename' ]
+  grunt.registerTask 'rename_project', [ 'replace', 'rename' ]
