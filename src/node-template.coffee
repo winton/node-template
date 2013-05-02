@@ -1,3 +1,2 @@
-common = require './node-template/common'
-async  = common.async
-_  = common.underscore
+for key, value of require('./node-template/common')
+  eval("var #{key} = value;")

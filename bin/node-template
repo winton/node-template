@@ -1,5 +1,3 @@
 #!/usr/bin/env node
 
-require("coffee-script");
-Bin = require("./node-template.coffee")
-new Bin()
+NodeTemplate = require("../lib/node-template")

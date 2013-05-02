@@ -13,6 +13,10 @@
 	"devDependencies": {
 		"chai": "",
 		"coffee-script": "",
+		"grunt": "",
+		"grunt-contrib-coffee": "",
+		"grunt-release": "",
+		"grunt-rename": "",
 		"mocha": "",
 		"sinon": ""
 	},
