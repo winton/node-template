@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "common.js",
+  "sourceRoot": "../../src/node-template/",
+  "sources": [
+    "common.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,KAAA;;CAAA,CAAA,CACE,GADF;CACE,CAAc,EAAd,GAAc,CAAA,IAAd;CAAA,CACc,CAAA,CAAd,GAAc;CADd,CAEc,EAAd,GAAc,KAAA;CAHhB,GAAA;;CAAA,CAKA,CAAe,EAAf,CAAM,GAAU;CACd,OAAA;;CAAA,EAAI,CAAJ,CAAI,CAAM;CAAV,CACA,EAAA,EAAA,CAAA;CACC,UAAD;CARF,EAKe;;CALf,CAUA,CAAiB,GAAX,CAAN;CAVA"
+}

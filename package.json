@@ -5,24 +5,22 @@
 		"node-template": "./bin/node-template"
 	},
 	"dependencies": {
-		"async": "",
-		"colors": "",
-		"glob": "",
+		"q"         : "",
 		"underscore": ""
 	},
 	"devDependencies": {
-		"chai": "",
-		"coffee-script": "",
-		"grunt": "",
+		"chai"                : "",
+		"coffee-script"       : "",
+		"grunt"               : "",
 		"grunt-contrib-coffee": "",
-		"grunt-release": "",
-		"grunt-rename": "",
-		"mocha": "",
-		"sinon": ""
+		"grunt-contrib-watch" : "",
+		"grunt-release"       : "",
+		"grunt-rename"        : "",
+		"grunt-text-replace"  : "",
+		"mocha"               : "",
+		"sinon"               : ""
 	},
-	"preferGlobal": "true",
 	"scripts": {
-		"start": "coffee -o lib -cw src",
 		"test": "mocha test/test.js --reporter spec"
 	}
 }
