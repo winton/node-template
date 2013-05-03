@@ -1,3 +1,11 @@
-#!/usr/bin/env node
+#!/bin/bash
 
-NodeTemplate = require("../lib/node-template")
+git clone git://github.com/winton/node-template.git $1
+
+if [ $? -eq 0 ]; then
+  cd $1
+else
+  exit 1
+fi
+
+grunt setup
