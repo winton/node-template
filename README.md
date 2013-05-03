@@ -8,16 +8,19 @@ You'll want to check out the [express branch](https://github.com/winton/node-tem
 
 ##Install
 
-	npm install coffee-script node-template -g
+	npm install node-template -g
 
 ##Create a new project
 
-	node-template my-project
-	cd my-project
+	node-template <project-name>
 
-##Compile CoffeeScript (watch ./src)
+You are now prompted to enter project settings.
 
-	npm start
+##Development mode
+
+Run the default grunt task while developing:
+
+	grunt
 
 ##Run tests
 
@@ -27,31 +30,17 @@ You'll want to check out the [express branch](https://github.com/winton/node-tem
 
 ###Production
 
-* [Async](https://github.com/caolan/async)
-* [Colors.js](https://github.com/marak/colors.js)
-* [Glob](https://github.com/isaacs/node-glob)
+* [Q](https://github.com/kriskowal/q)
 * [Underscore](http://documentcloud.github.com/underscore)
 
 ###Development
 
 * [Chai](http://chaijs.com)
 * [CoffeeScript](http://coffeescript.org)
+* [Grunt](http://gruntjs.com)
 * [Mocha](http://visionmedia.github.com/mocha)
+* [Prompt](https://github.com/flatiron/prompt)
 * [Sinon](http://sinonjs.org)
-
-###Install
-
-Install [shrinkwrapped](http://npmjs.org/doc/shrinkwrap.html) and/or new dependencies:
-
-	cake install
-
-This runs automatically upon creating a project.
-
-##Publish
-
-Shrinkwraps, commits, and tags with version:
-
-	cake publish
 
 ## Contribute
 
