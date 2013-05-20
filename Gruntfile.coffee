@@ -1,6 +1,4 @@
-prompt = require "prompt"
-prompt.message   = ""
-prompt.delimiter = ""
+path = require "path"
 
 module.exports = (grunt) ->
 
@@ -58,42 +56,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-rename"
   grunt.loadNpmTasks "grunt-text-replace"
 
-  grunt.registerTask 'default',        [ 'watch' ]
-  grunt.registerTask 'rename_project', [ 'replace', 'rename' ]
+  grunt.registerTask 'default', [ 'watch' ]
+  grunt.registerTask 'setup',   [ 'package', 'replace', 'rename' ]
 
-  grunt.registerTask 'setup', 'Setup a new project.', ->
-    done = @async()
-
-    schema =
-      properties:
-        name:
-          default    : grunt.option('name')
-          description: "Project name?"
-          pattern    : /^[a-zA-Z\-\_\d]+$/
-          message    : 'Name must be only letters, numbers, underscores, or dashes'
-          required   : true
-        version:
-          default    : grunt.option('version') || "0.1.0"
-          description: "Version?"
-          pattern    : /^[a-zA-Z\d\.]+$/
-          message    : 'Version must be only numbers, letters, or periods'
-          required   : true
-        author:
-          default    : grunt.option('author')
-          description: "Author?"
-          required   : true
-        repo:
-          default    : grunt.option('repo')
-          description: "Repository URL?"
-          required   : true
-
-    prompt.override =
-      name   : grunt.option('name')
-      version: grunt.option('version')
-      author : grunt.option('author')
-      repo   : grunt.option('repo')
-
-    prompt.start()
-    prompt.get schema, (err, result) ->
-      console.log(result)
-      done()
+  grunt.loadTasks(
+    path.resolve(__dirname, 'tasks')
+  )
