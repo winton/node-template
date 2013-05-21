@@ -1,7 +1,6 @@
 common =
-  EventEmitter: require('events').EventEmitter
-  Q           : require('q')
-  _           : require('underscore')
+  Q: require('q')
+  _: require('underscore')
 
 common.defer = (fn) ->
   d = common.Q.defer()
