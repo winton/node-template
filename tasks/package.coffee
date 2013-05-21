@@ -16,7 +16,7 @@ module.exports = (grunt) ->
     prompts =
       properties:
         name:
-          default    : grunt.option('name') || path.dirname(path.resolve(__dirname, '../'))
+          default    : grunt.option('name') || path.basename(path.resolve(__dirname, '../'))
           description: "Project name?"
           pattern    : /^[a-zA-Z\-\_\d]+$/
           message    : 'Name must be only letters, numbers, underscores, or dashes'
