@@ -8,8 +8,8 @@ else
   exit 1
 fi
 
+echo ""
 npm install
 
 echo ""
-
 grunt setup
