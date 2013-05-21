@@ -7,9 +7,9 @@ module.exports = (grunt) ->
     str.replace /((^|\-)[a-z])/g, ($1) -> $1.toUpperCase().replace('-','')
 
   grunt.config.data.replace =
-    node_template:
+    underscored:
       overwrite   : true
-      replacements: [ from: /node[-_]template/g, to: "<%= pkg.name %>" ]
+      replacements: [ from: /node-template/g, to: "<%= pkg.name %>" ]
       src         : replace_paths = [
         "bin/*"
         "Gruntfile.coffee"
@@ -18,7 +18,7 @@ module.exports = (grunt) ->
         "tasks/**/*.coffee"
         "test/**/*.coffee"
       ]
-    NodeTemplate:
+    Class:
       overwrite   : true
       replacements: [ from: /NodeTemplate/g, to: "<%= grunt.util.toCamel(pkg.name) %>" ]
       src         : replace_paths
