@@ -9,7 +9,7 @@ module.exports = (grunt) ->
   grunt.config.data.replace =
     node_template:
       overwrite   : true
-      replacements: [ from: /node-template/g, to: "<%= pkg.name %>" ]
+      replacements: [ from: /node[-_]template/g, to: "<%= pkg.name %>" ]
       src         : replace_paths = [
         "bin/*"
         "Gruntfile.coffee"
