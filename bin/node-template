@@ -8,4 +8,8 @@ else
   exit 1
 fi
 
+npm install
+
+echo ""
+
 grunt setup

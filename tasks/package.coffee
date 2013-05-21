@@ -56,7 +56,7 @@ module.exports = (grunt) ->
       json = JSON.stringify(pkg, null, 4)
       
       fs.writeFileSync(
-        path.resolve(__dirname, 'package.json')
+        path.resolve(__dirname, '../package.json')
         json
       )
 
