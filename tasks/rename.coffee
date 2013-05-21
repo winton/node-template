@@ -7,6 +7,9 @@ module.exports = (grunt) ->
     bin_path:
       src : "bin/node-template"
       dest: "bin/<%= pkg.name %>"
+    src_directory:
+      src : "src/node-template"
+      dest: "src/<%= pkg.name %>"
     src_path:
       src : "src/node-template.coffee"
       dest: "src/<%= pkg.name %>.coffee"
