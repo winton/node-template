@@ -15,6 +15,7 @@ module.exports = (grunt) ->
         "Gruntfile.coffee"
         "package.json"
         "src/**/*.coffee"
+        "tasks/**/*.coffee"
         "test/**/*.coffee"
       ]
     NodeTemplate:
