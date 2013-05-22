@@ -28,37 +28,43 @@ module.exports = (grunt) ->
           message    : 'Version must be only numbers, letters, or periods'
           required   : true
         author:
-          default    : grunt.option('author')
+          default    : grunt.option('author') || process.env.USER
           description: "Author?"
-          required   : true
-        repo:
-          default    : grunt.option('repo')
-          description: "Repository URL?"
           required   : true
 
     prompt.override =
       name   : grunt.option('name')
       version: grunt.option('version')
       author : grunt.option('author')
-      repo   : grunt.option('repo')
 
     prompt.start()
 
     prompt.get prompts, (err, result) =>
-      pkg  = grunt.config('pkg')
-      pkg.repository.url = result.repo
+      prompts = 
+        repo:
+          default    : grunt.option('repo') ||
+            "https://github.com/#{process.env.USER || "you"}/#{result.name}.git"
+          description: "Repository URL?"
+          required   : true
 
-      delete result.repo
+      prompt.override = repo: grunt.option('repo')
 
-      pkg = grunt.util._.extend(pkg, result)
-      grunt.config('pkg', pkg)
+      prompt.get prompts, (err, result2) =>
+        result = grunt.util._.extend(result, result2)
+        pkg    = grunt.config('pkg')
 
-      json = JSON.stringify(pkg, null, 4)
-      
-      fs.writeFileSync(
-        path.resolve(__dirname, '../package.json')
-        json
-      )
+        pkg.repository.url = result.repo
+        delete result.repo
 
-      done()
+        pkg = grunt.util._.extend(pkg, result)
+        grunt.config('pkg', pkg)
+
+        json = JSON.stringify(pkg, null, 4)
+        
+        fs.writeFileSync(
+          path.resolve(__dirname, '../package.json')
+          json
+        )
+
+        done()
   )

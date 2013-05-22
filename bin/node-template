@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/winton/node-template.git $1
+# git clone https://github.com/winton/node-template.git $1
 
 if [ $? -eq 0 ]; then
   cd $1
