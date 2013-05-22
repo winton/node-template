@@ -1,113 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <title>node-template by winton</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>node-template by winton</title>
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <div class="wrapper">
+      <header>
+        <h1>node-template</h1>
+        <p>Node.js package template</p>
 
-        <header>
-          <h1>node-template</h1>
-          <h2>Node.js package template</h2>
-        </header>
+        <p class="view"><a href="https://github.com/winton/node-template">View the Project on GitHub <small>winton/node-template</small></a></p>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/winton/node-template/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/winton/node-template/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/winton/node-template" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
 
-        <hr>
+        <ul>
+          <li><a href="https://github.com/winton/node-template/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/winton/node-template/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/winton/node-template">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>Goals</h3>
 
-        <section id="main_content">
-          <h2>Looking for a web app template?</h2>
+<ul>
+<li>Use state of the art methodologies for running a project</li>
+<li>Automate the creation and renaming of projects</li>
+<li>Utilize <a href="https://github.com/winton/node-template/branches">branches</a> to suit different project types</li>
+<li>Projects maintain git history to easily pull updates</li>
+</ul><h3>Install</h3>
 
-<p>You'll want to check out the <a href="https://github.com/winton/node-template/tree/express">express branch</a>.</p>
-
-<h2>Install</h2>
-
-<pre><code>npm install coffee-script node-template -g
+<pre><code>npm install node-template -g
 </code></pre>
 
-<h2>Create a new project</h2>
+<h3>Create a new project</h3>
 
-<pre><code>node-template my-project
-cd my-project
+<pre><code>node-template &lt;project-name&gt;
 </code></pre>
 
-<h2>Compile CoffeeScript (watch ./src)</h2>
+<h3>Grunt Tasks</h3>
 
-<pre><code>npm start
-</code></pre>
+<p>The <a href="https://github.com/winton/node-template/tree/master/tasks">tasks directory</a> contains preinstalled <a href="http://gruntjs.com">Grunt</a> tasks.</p>
 
-<h2>Run tests</h2>
+<p>The default task is <a href="https://github.com/winton/node-template/blob/master/tasks/watch.coffee">watch</a>.</p>
+
+<h3>Run tests</h3>
 
 <pre><code>npm test
 </code></pre>
 
-<h2>Dependencies</h2>
+<h3>Dependencies</h3>
 
-<h3>Production</h3>
+<h4>Production</h4>
 
 <ul>
-<li><a href="https://github.com/caolan/async">Async</a></li>
-<li><a href="https://github.com/marak/colors.js">Colors.js</a></li>
-<li><a href="https://github.com/isaacs/node-glob">Glob</a></li>
+<li><a href="https://github.com/kriskowal/q">Q</a></li>
 <li><a href="http://documentcloud.github.com/underscore">Underscore</a></li>
-</ul><h3>Development</h3>
+</ul><h4>Development</h4>
 
 <ul>
 <li><a href="http://chaijs.com">Chai</a></li>
 <li><a href="http://coffeescript.org">CoffeeScript</a></li>
+<li><a href="http://gruntjs.com">Grunt</a></li>
 <li><a href="http://visionmedia.github.com/mocha">Mocha</a></li>
+<li><a href="https://github.com/flatiron/prompt">Prompt</a></li>
 <li><a href="http://sinonjs.org">Sinon</a></li>
-</ul><h3>Install</h3>
-
-<p>Install <a href="http://npmjs.org/doc/shrinkwrap.html">shrinkwrapped</a> and/or new dependencies:</p>
-
-<pre><code>cake install
-</code></pre>
-
-<p>This runs automatically upon creating a project.</p>
-
-<h2>Publish</h2>
-
-<p>Shrinkwraps, commits, and tags with version:</p>
-
-<pre><code>cake publish
-</code></pre>
-
-<h2>Contribute</h2>
+</ul><h3>Contribute</h3>
 
 <p><a href="https://github.com/winton/node-template/issues/new">Create an issue</a> to discuss template changes.</p>
 
 <p>Pull requests for template changes and new branches are even better.</p>
 
-<h2>Stay up to date</h2>
+<h3>Stay up to date</h3>
 
 <p><a href="https://github.com/winton/node-template#">Watch this project</a> on Github.</p>
 
 <p><a href="http://twitter.com/intent/user?screen_name=wintonius">Follow Winton Welsh</a> on Twitter.</p>
-        </section>
-
-        <footer>
-          node-template is maintained by <a href="https://github.com/winton">winton</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/winton">winton</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
