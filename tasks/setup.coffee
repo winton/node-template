@@ -1,38 +1,45 @@
 # Update package.json and rename project.
 
+path = require("path")
+fs   = require("fs")
+
 module.exports = (grunt) ->
 
-  grunt.config.data.setup =
-    start: true
-    bin : true
-    git : true
+  grunt.registerTask("setup:bin", "Rewrite the bin file.", ->
+    fs.writeFileSync(
+      path.resolve(__dirname, "../bin/#{grunt.config("pkg").name}")
+      """
+      #!/usr/bin/env coffee
 
-  grunt.registerMultiTask("setup", "Setup your project.", ->
+      NodeTemplate = require("../lib/node-template")
+      """
+    )
+  )
+
+  grunt.registerTask("setup:git", "Set the git origin to the same as package.json.", ->
     done = @async()
 
-    switch @target
-      when 'start'
-        grunt.task.run(
-          "package"
-          "replace"
-          "rename"
-        )
-        done()
-      when 'git'
+    grunt.util.spawn(
+      cmd : "git"
+      args: [ "remote", "rm", "origin" ]
+      opts: stdio: "inherit"
+      (error, result, code) ->
         grunt.util.spawn(
-          cmd : "git"
-          args: [ "remote", "rm", "origin" ]
+          cmd: "git"
+          args: [ "remote", "add", "origin", grunt.config("pkg").repository.url ]
           opts: stdio: "inherit"
-          (error, result, code) ->
-            grunt.util.spawn(
-              cmd: "git"
-              args: [ "remote", "add", "origin", grunt.config("pkg").repository.url ]
-              opts: stdio: "inherit"
-              (error, result, code) ->
-                done()
-            )
+          (error, result, code) -> done()
         )
-      when 'bin'
-        grunt.log.writeln(this.target + ': ' + this.data)
-        done()
+    )
+  )
+
+  grunt.task.registerTask(
+    'setup'
+    [
+      'package'
+      'setup:git'
+      'rename'
+      'setup:bin'
+      'replace'
+    ]
   )
