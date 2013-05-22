@@ -13,6 +13,7 @@
   "devDependencies": {
     "chai": "",
     "coffee-script": "",
+    "express": "",
     "grunt": "",
     "grunt-contrib-coffee": "",
     "grunt-contrib-watch": "",
