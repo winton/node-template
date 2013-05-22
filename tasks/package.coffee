@@ -10,7 +10,7 @@ prompt.delimiter = ""
 
 module.exports = (grunt) ->
   
-  grunt.registerTask('package', 'Update package.json.', ->
+  grunt.registerTask('package', 'Update package.json from user input.', ->
     done = @async()
 
     prompts =

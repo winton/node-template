@@ -16,7 +16,7 @@ module.exports = (grunt) ->
     )
   )
 
-  grunt.registerTask("setup:git", "Set the git origin to the same as package.json.", ->
+  grunt.registerTask("setup:git", "Set the git origin to the same as the repo listed in package.json.", ->
     done = @async()
 
     grunt.util.spawn(
