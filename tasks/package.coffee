@@ -41,11 +41,12 @@ module.exports = (grunt) ->
 
     prompt.get prompts, (err, result) =>
       prompts = 
-        repo:
-          default    : grunt.option('repo') ||
-            "https://github.com/#{process.env.USER || "you"}/#{result.name}.git"
-          description: "Repository URL?"
-          required   : true
+        properties:
+          repo:
+            default    : grunt.option('repo') ||
+              "https://github.com/#{process.env.USER || "you"}/#{result.name}.git"
+            description: "Repository URL?"
+            required   : true
 
       prompt.override = repo: grunt.option('repo')
 

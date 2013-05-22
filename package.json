@@ -1,35 +1,33 @@
 {
-	"name"      : "node-template",
-	"version"   : "0.1.7",
-	"author"    : "Winton Welsh <mail@wintoni.us>",
-	"repository": {
-		"type": "git",
-		"url" : "https://github.com/winton/node-template.git"
-	},
-
-	"dependencies": {
-		"q"         : "",
-		"underscore": ""
-	},
-	"devDependencies": {
-		"chai"                : "",
-		"coffee-script"       : "",
-		"grunt"               : "",
-		"grunt-contrib-coffee": "",
-		"grunt-contrib-watch" : "",
-		"grunt-release"       : "",
-		"grunt-rename"        : "",
-		"grunt-text-replace"  : "",
-		"mocha"               : "",
-		"prompt"              : "",
-		"sinon"               : ""
-	},
-
-	"bin": {
-		"node-template": "./bin/node-template"
-	},
-	"license": "MIT",
-	"scripts": {
-		"test": "mocha test/test.js --reporter spec"
-	}
+    "name": "node-template",
+    "version": "0.1.7",
+    "author": "Winton Welsh <mail@wintoni.us>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/winton/node-template.git"
+    },
+    "dependencies": {
+        "q": "",
+        "underscore": ""
+    },
+    "devDependencies": {
+        "chai": "",
+        "coffee-script": "",
+        "grunt": "",
+        "grunt-contrib-coffee": "",
+        "grunt-contrib-watch": "",
+        "grunt-release": "",
+        "grunt-rename": "",
+        "grunt-text-replace": "",
+        "mocha": "",
+        "prompt": "",
+        "sinon": ""
+    },
+    "bin": {
+        "node-template": "./bin/node-template"
+    },
+    "license": "MIT",
+    "scripts": {
+        "test": "mocha test/test.js --reporter spec"
+    }
 }

@@ -20,15 +20,17 @@ module.exports = (grunt) ->
         done()
       when 'git'
         grunt.util.spawn(
-          cmd: [
-            "git remote rm origin"
-            "git remote add origin #{grunt.config('pkg').repository.url}"
-          ].join(';')
+          cmd : "git"
+          args: [ "remote", "rm", "origin" ]
+          opts: stdio: "inherit"
           (error, result, code) ->
-            console.log(error)
-            console.log(String(result))
-            console.log(code)
-            done()
+            grunt.util.spawn(
+              cmd: "git"
+              args: [ "remote", "add", "origin", grunt.config("pkg").repository.url ]
+              opts: stdio: "inherit"
+              (error, result, code) ->
+                done()
+            )
         )
       when 'bin'
         grunt.log.writeln(this.target + ': ' + this.data)
