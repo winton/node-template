@@ -3,3 +3,5 @@ for key, value of require('./node-template/common')
 
 module.exports = class NodeTemplate
   initialize: =>
+
+NodeTemplate.Cluster = require("./node-template/cluster")
