@@ -1,6 +1,6 @@
-##NodeTemplate
+##NodeTemplate -> express
 
-Node.js package template.
+Node.js web app template.
 
 ###Goals
 
@@ -17,12 +17,11 @@ Node.js package template.
 
 	node-template <project-name>
 
-When prompted for a `node-template` branch, enter one of the following:
-
-* **master** - Simple npm package template
-* **express** - Web server template ([express.js](http://expressjs.com))
+When prompted for a `node-template` branch, enter `express`.
 
 ###Start working
+
+Run `bin/your-project-name` to start the web server.
 
 Run `grunt` to watch for changes in `src` and compile them to `lib`.
 
