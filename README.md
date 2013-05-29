@@ -4,10 +4,10 @@ Node.js package template.
 
 ###Goals
 
-* Use state of the art methodologies for running a project
+* Utilize widely accepted tools and libraries
 * Automate the creation and renaming of projects
-* Utilize [branches](https://github.com/winton/node-template/branches) to selectively add functionality
-* Projects maintain git history to easily pull updates
+* Projects and templates share git history for easy updates
+* Selectively add functionality with git [branches](https://github.com/winton/node-template/branches)
 
 ###Install
 
@@ -17,31 +17,16 @@ Node.js package template.
 
 	node-template <project-name>
 
-###Grunt Tasks
+When prompted for a `node-template` branch, enter one of the following:
 
-The [tasks directory](https://github.com/winton/node-template/tree/master/tasks) contains preinstalled [Grunt](http://gruntjs.com) tasks.
+* **master** - Simple npm package template
+* **express** - Web server template ([express.js](http://expressjs.com))
 
-The default task is [watch](https://github.com/winton/node-template/blob/master/tasks/watch.coffee).
+###Start working
 
-###Run tests
+Run `grunt` to watch for changes in `src` and compile them to `lib`.
 
-	npm test
-
-###Dependencies
-
-####Production
-
-* [Q](https://github.com/kriskowal/q)
-* [Underscore](http://documentcloud.github.com/underscore)
-
-####Development
-
-* [Chai](http://chaijs.com)
-* [CoffeeScript](http://coffeescript.org)
-* [Grunt](http://gruntjs.com)
-* [Mocha](http://visionmedia.github.com/mocha)
-* [Prompt](https://github.com/flatiron/prompt)
-* [Sinon](http://sinonjs.org)
+Run `npm test` to execute your test suite.
 
 ### Contribute
 
