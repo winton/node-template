@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo ""
 git clone https://github.com/winton/node-template.git $1
 
 if [ $? -eq 0 ]; then
@@ -14,4 +15,9 @@ npm install
 echo ""
 grunt setup:branch
 
-echo "\033[1;31mPlease run `grunt setup` to finish setting up your project!\033[m"
+echo ""
+echo $'\e[1;31m'"To finish setting up your project:"
+echo $'\e[0m'
+echo "    cd test"
+echo "    grunt setup"
+echo ""
