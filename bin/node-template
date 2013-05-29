@@ -16,8 +16,11 @@ echo ""
 grunt setup:branch
 
 echo ""
+npm install
+
+echo ""
 echo $'\e[1;31m'"To finish setting up your project:"
 echo $'\e[0m'
-echo "    cd test"
+echo "    cd $1"
 echo "    grunt setup"
 echo ""

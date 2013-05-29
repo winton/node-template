@@ -75,5 +75,6 @@ module.exports = (grunt) ->
       'rename'
       'setup:bin'
       'replace'
+      'coffee'
     ]
   )
