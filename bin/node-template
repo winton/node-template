@@ -12,4 +12,6 @@ echo ""
 npm install
 
 echo ""
-grunt setup
+grunt setup:branch
+
+echo "\033[1;31mPlease run `grunt setup` to finish setting up your project!\033[m"
