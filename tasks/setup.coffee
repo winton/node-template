@@ -3,17 +3,16 @@
 path = require("path")
 fs   = require("fs")
 
+Coffee = require("coffee-script")
+
 module.exports = (grunt) ->
 
   grunt.registerTask("setup:bin", "Rewrite the bin file.", ->
     fs.writeFileSync(
       path.resolve(__dirname, "../bin/#{grunt.config("pkg").name}")
-      """
-      #!/usr/bin/env coffee
-
-      NodeTemplate = require("../lib/node-template")
-      new NodeTemplate.Cluster()
-      """
+      "#!/usr/bin/env node\n" + Coffee.compile(
+        fs.readFileSync("#{__dirname}/templates/bin.coffee").toString()
+      )
     )
   )
 

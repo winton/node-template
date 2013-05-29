@@ -7,14 +7,14 @@
     "url": "https://github.com/winton/node-template.git"
   },
   "dependencies": {
+    "express": "",
+    "glob": "",
     "q": "",
     "underscore": ""
   },
   "devDependencies": {
     "chai": "",
     "coffee-script": "",
-    "express": "",
-    "glob": "",
     "grunt": "",
     "grunt-contrib-coffee": "",
     "grunt-contrib-watch": "",
