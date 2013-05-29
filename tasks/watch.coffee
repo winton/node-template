@@ -10,4 +10,4 @@ module.exports = (grunt) ->
       options: nospawn: true
 
   grunt.loadNpmTasks "grunt-contrib-watch"
-  grunt.registerTask "default", [ "watch" ]
+  grunt.registerTask "default", [ "coffee:clean", "coffee", "watch" ]
