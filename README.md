@@ -20,7 +20,7 @@ Node.js package template.
 When prompted for a `node-template` branch, enter one of the following:
 
 * **master** - Simple npm package template
-* **express** - Web server template ([express.js](http://expressjs.com))
+* [**express**](https://github.com/winton/node-template/tree/express) - Web server template ([express.js](http://expressjs.com))
 
 ###Start working
 
