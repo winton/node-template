@@ -13,6 +13,14 @@ Node.js package template.
 
 	npm install node-template -g
 
+###Checkout a branch (optional)
+
+Check the [branches](https://github.com/winton/node-template/branches) list for options.
+
+For example:
+
+	git branch express origin/express
+
 ###Create a new project
 
 	node-template <project-name>
