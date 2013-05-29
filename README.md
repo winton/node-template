@@ -6,20 +6,12 @@ Node.js package template.
 
 * Use state of the art methodologies for running a project
 * Automate the creation and renaming of projects
-* Utilize [branches](https://github.com/winton/node-template/branches) to suit different project types
+* Utilize [branches](https://github.com/winton/node-template/branches) to selectively add functionality
 * Projects maintain git history to easily pull updates
 
 ###Install
 
 	npm install node-template -g
-
-###Checkout a branch (optional)
-
-Check the [branches](https://github.com/winton/node-template/branches) list for options.
-
-For example:
-
-	git branch express origin/express
 
 ###Create a new project
 
