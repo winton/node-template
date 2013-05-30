@@ -1,13 +1,6 @@
-##NodeTemplate -> express
+##NodeTemplate - express
 
 Node.js web app template.
-
-###Goals
-
-* Utilize widely accepted tools and libraries
-* Automate the creation and renaming of projects
-* Projects and templates share git history for easy updates
-* Selectively add functionality with git [branches](https://github.com/winton/node-template/branches)
 
 ###Install
 
