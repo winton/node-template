@@ -3,6 +3,7 @@
 path = require("path")
 fs   = require("fs")
 
+Coffee = require("coffee-script")
 prompt = require("prompt")
 
 prompt.message   = ""
@@ -13,11 +14,12 @@ module.exports = (grunt) ->
   grunt.registerTask("setup:bin", "Rewrite the bin file.", ->
     fs.writeFileSync(
       path.resolve(__dirname, "../bin/#{grunt.config("pkg").name}")
-      """
-      #!/usr/bin/env coffee
-
-      NodeTemplate = require("../lib/node-template")
-      """
+      "#!/usr/bin/env node\n" + Coffee.compile(
+        """
+        NodeTemplate = require("../lib/node-template")
+        new NodeTemplate
+        """
+      )
     )
   )
 
