@@ -2,9 +2,7 @@ for key, value of require('./node-template/common')
   eval("var #{key} = value;")
 
 Bookshelf = require("bookshelf")
-fs        = require("fs")
 glob      = require("glob")
-path      = require("path")
 
 module.exports = class NodeTemplate
   constructor: ->
