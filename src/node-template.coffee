@@ -6,6 +6,14 @@ glob      = require("glob")
 
 module.exports = class NodeTemplate
   constructor: ->
+    @loadBookshelf()
+
+  glob: (path) ->
+    defer (resolve, reject) =>
+      glob path, (e, files) =>
+        resolve(files)
+
+  loadBookshelf: ->
     config = JSON.parse(
       fs.readFileSync(
         path.resolve(__dirname, "../config/database.json")
@@ -21,8 +29,3 @@ module.exports = class NodeTemplate
             _.extend(@, require(file))
         )
     )
-
-  glob: (path) ->
-    defer (resolve, reject) =>
-      glob path, (e, files) =>
-        resolve(files)
