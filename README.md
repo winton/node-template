@@ -10,9 +10,8 @@ Node.js web app template.
 
 	node-template <project-name> express <branch>...
 
-You may specify additional branches if you like:
+Specify additional branches if you like (optional):
 
-* **master** - Base npm package template. Default if no branch specified.
 * [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - ([Bookshelf.js](http://bookshelfjs.org)) database ORM
 
 ###Start working
