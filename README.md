@@ -14,7 +14,7 @@ When prompted for a `node-template` branch, enter `express`.
 
 ###Start working
 
-Run `bin/your-project-name` to start the web server.
+Run `bin/<project-name>` to start the web server.
 
 Run `grunt` to watch for changes in `src` and compile them to `lib`.
 
