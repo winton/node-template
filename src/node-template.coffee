@@ -6,7 +6,15 @@ glob    = require("glob")
 
 module.exports = class NodeTemplate
   constructor: (port) ->
-    @app = express()
+    @loadExpress(port)
+
+  glob: (path) ->
+    defer (resolve, reject) =>
+      glob path, (e, files) =>
+        resolve(files)
+  
+  loadExpress: (port) ->
+    @app = express(port)
 
     @app.configure =>
       @app.use express.static("#{__dirname}/../../public")
@@ -28,8 +36,3 @@ module.exports = class NodeTemplate
           @app.listen(port)
           console.log("NodeTemplate started on #{port}.")
     )
-
-  glob: (path) ->
-    defer (resolve, reject) =>
-      glob path, (e, files) =>
-        resolve(files)
