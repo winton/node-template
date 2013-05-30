@@ -15,12 +15,13 @@ Node.js package template.
 
 ###Create a new project
 
-	node-template <project-name>
+	node-template <project-name> <branch>...
 
-When prompted for a `node-template` branch, enter one of the following:
+Available branches:
 
-* **master** - Simple npm package template
-* [**express**](https://github.com/winton/node-template/tree/express) - Web server template ([express.js](http://expressjs.com))
+* **master** - Base npm package template. Default if no branch specified.
+* [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - ([Bookshelf.js](http://bookshelfjs.org)) database ORM
+* [**express**](https://github.com/winton/node-template/tree/express) - ([Express.js](http://expressjs.com)) web server
 
 ###Start working
 

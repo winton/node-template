@@ -23,35 +23,6 @@ module.exports = (grunt) ->
     )
   )
 
-  grunt.registerTask("setup:branch", "Choose a template branch.", ->
-    done = @async()
-
-    prompt.start()
-    prompt.get(
-      properties:
-        branch:
-          default    : "master"
-          description: "node-template branch?"
-          pattern    : /^[a-zA-Z\-\_\d]+$/
-          message    : 'Name must be only letters, numbers, underscores, or dashes'
-          required   : true
-      (err, result) =>
-        grunt.util.spawn(
-          cmd : "git"
-          args: [ "fetch", "origin" ]
-          opts: stdio: "inherit"
-          ->
-            grunt.util.spawn(
-              cmd : "git"
-              args: [ "pull", "origin", result.branch ]
-              opts: stdio: "inherit"
-              (error, result, code) ->
-                done()
-            )
-        )
-    )
-  )
-
   grunt.registerTask("setup:remote", "Set the git origin to the same as the repo listed in package.json.", ->
     done = @async()
 
