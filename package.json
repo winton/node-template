@@ -7,6 +7,10 @@
     "url": "https://github.com/winton/node-template.git"
   },
   "dependencies": {
+    "bookshelf": "",
+    "mysql": "",
+    "pg": "",
+    "sqlite3": "",
     "q": "",
     "underscore": ""
   },

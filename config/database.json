@@ -1,0 +1,6 @@
+{
+	"client": "sqlite",
+	"connection": {
+		"filename": "../sqlite_db"
+	}
+ }
