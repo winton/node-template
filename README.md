@@ -12,7 +12,7 @@ Node.js web app template.
 
 Specify additional branches if you like (optional):
 
-* [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - ([Bookshelf.js](http://bookshelfjs.org)) database ORM
+* [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - [Bookshelf.js](http://bookshelfjs.org) database ORM
 
 ###Start working
 
