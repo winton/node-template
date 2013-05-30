@@ -15,13 +15,21 @@ module.exports = class NodeTemplate
       @app.use express.logger()
       @app.use express.methodOverride()
 
-    glob "#{__dirname}/node-template/controllers/**/*.js", (e, files) =>
-      _.each(
-        files
-        (file) =>
-          (new require(file))(@app)
-      )
+    @glob("#{__dirname}/node-template/controllers/**/*.js").then(
+      (files) =>
+        _.each(
+          files
+          (file) =>
+            for key, value of require(file)
+              @[key] = new value(@app)
+        )
 
-    if port
-      @app.listen(port)
-      console.log("NodeTemplate started on #{port}.")
+        if port
+          @app.listen(port)
+          console.log("NodeTemplate started on #{port}.")
+    )
+
+  glob: (path) ->
+    defer (resolve, reject) =>
+      glob path, (e, files) =>
+        resolve(files)
