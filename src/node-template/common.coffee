@@ -1,6 +1,8 @@
 common =
-  Q: require('q')
-  _: require('underscore')
+  fs  : require('fs')
+  path: require('path')
+  Q   : require('q')
+  _   : require('underscore')
 
 common.defer = (fn) ->
   d = common.Q.defer()
