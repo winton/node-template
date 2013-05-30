@@ -19,7 +19,7 @@ Node.js package template.
 
 Specify additional branches (optional):
 
-* [**express**](https://github.com/winton/node-template/tree/express) - ([Express.js](http://expressjs.com)) web server
+* [**express**](https://github.com/winton/node-template/tree/express) - [Express.js](http://expressjs.com) web server
 
 ###Start working
 
