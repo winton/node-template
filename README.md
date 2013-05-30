@@ -8,9 +8,12 @@ Node.js web app template.
 
 ###Create a new project
 
-	node-template <project-name>
+	node-template <project-name> express <branch>...
 
-When prompted for a `node-template` branch, enter `express`.
+You may specify additional branches if you like:
+
+* **master** - Base npm package template. Default if no branch specified.
+* [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - ([Bookshelf.js](http://bookshelfjs.org)) database ORM
 
 ###Start working
 
