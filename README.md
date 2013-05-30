@@ -1,6 +1,6 @@
-##NodeTemplate
+##NodeTemplate - bookshelf
 
-Node.js package template.
+Node.js package template with database ORM.
 
 ###Goals
 
