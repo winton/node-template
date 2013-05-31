@@ -1,6 +1,6 @@
-##NodeTemplate - bookshelf
+##NodeTemplate - bookshelf + express
 
-Node.js package template with database ORM.
+Node.js package template with a database ORM and web server.
 
 ###Goals
 
@@ -15,13 +15,11 @@ Node.js package template with database ORM.
 
 ###Create a new project
 
-	node-template <project-name> bookshelf <branch>...
-
-Specify additional branches (optional):
-
-* [**express**](https://github.com/winton/node-template/tree/express) - [Express.js](http://expressjs.com) web server
+	node-template <project-name> bookshelf-express
 
 ###Start working
+
+Run `bin/<project-name>` to start the web server.
 
 Run `grunt` to watch for changes in `src` and compile them to `lib`.
 

@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "bookshelf": "",
+    "express": "",
+    "glob": "",
     "mysql": "",
     "pg": "",
     "sqlite3": "",
@@ -17,7 +19,6 @@
   "devDependencies": {
     "chai": "",
     "coffee-script": "",
-    "glob": "",
     "grunt": "",
     "grunt-contrib-coffee": "",
     "grunt-contrib-watch": "",
