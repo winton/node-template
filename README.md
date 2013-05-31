@@ -1,6 +1,6 @@
 ##NodeTemplate - bookshelf
 
-Node.js package template with database ORM.
+Node.js package template with a database ORM.
 
 ###Goals
 
@@ -15,7 +15,7 @@ Node.js package template with database ORM.
 
 ###Create a new project
 
-	node-template <project-name> bookshelf <branch>...
+	node-template <project-name> bookshelf
 
 Other available branches:
 
