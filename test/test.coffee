@@ -1,3 +1,4 @@
+require("source-map-support").install()
 require("chai").should()
 
 glob = require "glob"
