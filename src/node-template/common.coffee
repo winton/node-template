@@ -4,9 +4,8 @@ common =
   Q   : require('q')
   _   : require('underscore')
 
-common.defer = (fn) ->
+common.defer = ->
   d = common.Q.defer()
-  fn(d.resolve, d.reject)
-  d.promise
+  return [ d.promise, d.reject, d.resolve ]
 
 module.exports = common
