@@ -17,9 +17,11 @@ Node.js package template with database ORM.
 
 	node-template <project-name> bookshelf <branch>...
 
-Specify additional branches (optional):
+Other available branches:
 
-* [**express**](https://github.com/winton/node-template/tree/express) - [Express.js](http://expressjs.com) web server
+* **master** - Base npm package template *(default)*
+* [**express**](https://github.com/winton/node-template/tree/express) - Express.js web server
+* [**bookshelf-express**](https://github.com/winton/node-template/tree/bookshelf-express) - Bookshelf + Express
 
 ###Start working
 
