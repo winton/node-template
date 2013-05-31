@@ -27,6 +27,7 @@
     "grunt-text-replace": "",
     "mocha": "",
     "prompt": "",
+    "source-map-support": "",
     "sinon": ""
   },
   "bin": {
