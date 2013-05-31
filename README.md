@@ -19,9 +19,10 @@ Node.js package template.
 
 Available branches:
 
-* **master** - Base npm package template. Default if no branch specified.
-* [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - [Bookshelf.js](http://bookshelfjs.org) database ORM
-* [**express**](https://github.com/winton/node-template/tree/express) - [Express.js](http://expressjs.com) web server
+* **master** - Base npm package template *(default)*
+* [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - Bookshelf.js database ORM
+* [**express**](https://github.com/winton/node-template/tree/express) - Express.js web server
+* [**bookshelf-express**](https://github.com/winton/node-template/tree/bookshelf-express) - Bookshelf + Express
 
 ###Start working
 
