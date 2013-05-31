@@ -1,6 +1,6 @@
 ##NodeTemplate - bookshelf + express
 
-Node.js package template with a database ORM and web server.
+Node.js web server with a database ORM.
 
 ###Goals
 
