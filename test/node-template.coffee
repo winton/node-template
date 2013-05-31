@@ -1,9 +1,10 @@
-NodeTemplate = require("../lib/node-template")
+NodeTemplate  = require("../lib/node-template")
+node_template = null
 
 describe 'NodeTemplate', ->
   describe '#constructor', ->
     before ->
-      new NodeTemplate
+      node_template = new NodeTemplate
 
-    it 'should', ->
-      true.should.eql(true)
+    it 'should return an instance of NodeTemplate', ->
+      node_template.should.be.an.instanceof(NodeTemplate)
