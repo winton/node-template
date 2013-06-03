@@ -32,6 +32,8 @@ module.exports = class NodeTemplate
         resolve()
     )
 
+    promise
+
   loadExpress: (port) ->
     [ promise, resolve, reject ] = Common.defer()
 
