@@ -4,10 +4,10 @@ Node.js package template with a database ORM.
 
 ###Goals
 
-* Utilize widely accepted tools and libraries
+* Use widely accepted practices and libraries
 * Automate the creation and renaming of projects
-* Projects and templates share git history for easy updates
-* Selectively add functionality with git [branches](https://github.com/winton/node-template/branches)
+* Projects share git history for easy updates
+* Add functionality through template [branches](https://github.com/winton/node-template/branches)
 
 ###Install
 
