@@ -38,4 +38,4 @@ module.exports = class NodeTemplate
         resolve()
     )
     
-    promise()
+    promise
