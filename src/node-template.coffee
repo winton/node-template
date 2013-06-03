@@ -7,8 +7,9 @@ glob      = require("glob")
 
 module.exports = class NodeTemplate
   constructor: (port) ->
-    @loadBookshelf()
-    @loadExpress(port)
+    @loadBookshelf().then(
+      @loadExpress(port)
+    )
 
   glob: (path) ->
     [ promise, resolve ] = defer()
