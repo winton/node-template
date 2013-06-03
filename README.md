@@ -4,10 +4,10 @@ Node.js package template.
 
 ###Goals
 
-* Templates utilize widely accepted practices
+* Use widely accepted practices and libraries
 * Automate the creation and renaming of projects
 * Projects share git history for easy updates
-* Selectively add functionality with git [branches](https://github.com/winton/node-template/branches)
+* Add functionality through template [branches](https://github.com/winton/node-template/branches)
 
 ###Install
 
