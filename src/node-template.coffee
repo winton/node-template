@@ -35,7 +35,7 @@ module.exports = class NodeTemplate
     promise
 
   loadExpress: (port) ->
-    [ promise, resolve, reject ] = Common.defer()
+    [ promise, resolve, reject ] = defer()
 
     @app = express(port)
     @app.configure =>
@@ -49,8 +49,7 @@ module.exports = class NodeTemplate
       (files) =>
         _.each files, (file) =>
           for key, value of require(file)
-            @[key] = new value(@app)      
-        )
+            @[key] = new value(@app)
 
         if port
           @app.listen(port)
