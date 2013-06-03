@@ -29,3 +29,5 @@ module.exports = class NodeTemplate
           _.extend(@, require(file))
         resolve()
     )
+
+    promise
