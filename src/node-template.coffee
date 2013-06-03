@@ -33,8 +33,9 @@ module.exports = class NodeTemplate
     )
 
   loadExpress: (port) ->
-    @app = express(port)
+    [ promise, resolve, reject ] = Common.defer()
 
+    @app = express(port)
     @app.configure =>
       @app.use express.static("#{__dirname}/../../public")
       @app.use express.bodyParser()
@@ -44,14 +45,16 @@ module.exports = class NodeTemplate
 
     @glob("#{__dirname}/node-template/controllers/**/*.js").then(
       (files) =>
-        _.each(
-          files
-          (file) =>
-            for key, value of require(file)
-              @[key] = new value(@app)
+        _.each files, (file) =>
+          for key, value of require(file)
+            @[key] = new value(@app)      
         )
 
         if port
           @app.listen(port)
           console.log("NodeTemplate started on #{port}.")
+
+        resolve()
     )
+    
+    promise()
