@@ -2,6 +2,13 @@
 
 Node.js web app template.
 
+###Goals
+
+* Use widely accepted practices and libraries
+* Automate the creation and renaming of projects
+* Projects share git history for easy updates
+* Add functionality through template [branches](https://github.com/winton/node-template/branches)
+
 ###Install
 
 	npm install node-template -g
