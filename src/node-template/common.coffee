@@ -6,6 +6,6 @@ common =
 
 common.defer = ->
   d = common.Q.defer()
-  return [ d.promise, d.reject, d.resolve ]
+  [ d.promise, d.resolve, d.reject ]
 
 module.exports = common
