@@ -9,11 +9,13 @@ module.exports = class NodeTemplate
     @loadBookshelf()
 
   glob: (path) ->
-    defer (resolve, reject) =>
-      glob path, (e, files) =>
-        resolve(files)
+    [ promise, resolve ] = defer()
+    glob path, (e, files) => resolve(files)
+    promise
 
   loadBookshelf: ->
+    [ promise, resolve, reject ] = defer()
+
     config = JSON.parse(
       fs.readFileSync(
         path.resolve(__dirname, "../config/database.json")
@@ -23,9 +25,7 @@ module.exports = class NodeTemplate
     @db = Bookshelf.Initialize(config)
     @glob("#{__dirname}/node-template/models/**/*.js").then(
       (files) =>
-        _.each(
-          files
-          (file) =>
-            _.extend(@, require(file))
-        )
+        _.each files, (file) =>
+          _.extend(@, require(file))
+        resolve()
     )
