@@ -1,8 +1,10 @@
 common =
-  fs  : require('fs')
-  path: require('path')
-  Q   : require('q')
-  _   : require('underscore')
+  Bookshelf: require("bookshelf")
+  fs       : require('fs')
+  glob     : require("glob")
+  path     : require('path')
+  Q        : require('q')
+  _        : require('underscore')
 
 common.defer = ->
   d = common.Q.defer()

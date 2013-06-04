@@ -1,4 +1,5 @@
-Bookshelf = require("bookshelf")
+for key, value of require('./common')
+  eval("var #{key} = value;")
 
 module.exports =
   User: User = Bookshelf.Model.extend(
