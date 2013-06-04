@@ -1,10 +1,6 @@
 for key, value of require('./node-template/common')
   eval("var #{key} = value;")
 
-Bookshelf = require("bookshelf")
-express   = require("express")
-glob      = require("glob")
-
 module.exports = class NodeTemplate
   constructor: (port) ->
     @loadBookshelf().then(
