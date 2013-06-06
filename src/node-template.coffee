@@ -38,8 +38,8 @@ module.exports = class NodeTemplate
 
     promise
 
-  loadExpress: ->
-    NodeTemplate.loadExpress().spread (app, controllers) =>
+  loadExpress: (port) ->
+    NodeTemplate.loadExpress(port).spread (app, controllers) =>
       @app = app
       _.extend(@, controllers)
       Q.resolve([ app, controllers ])
