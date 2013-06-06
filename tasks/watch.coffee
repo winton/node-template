@@ -7,7 +7,7 @@ module.exports = (grunt) ->
     scripts:
       files  : [ '**/*.coffee' ],
       tasks  : [ 'coffee' ],
-      options: nospawn: true
+      options: nospawn: false
 
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.registerTask "default", [ "coffee:clean", "coffee", "watch" ]
