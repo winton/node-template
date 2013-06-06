@@ -1,6 +1,6 @@
 {
 	"client": "sqlite",
 	"connection": {
-		"filename": "sqlite_db"
+		"filename": "sqlite-db"
 	}
  }
