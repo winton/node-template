@@ -44,7 +44,7 @@ module.exports = class NodeTemplate
     return @_express  if @_express
     controllers = "#{__dirname}/node-template/controllers/**/*.js"
 
-    @glob(controllers).then((files) =>
+    @_express = @glob(controllers).then((files) =>
       app = express(port)
 
       app.configure =>
