@@ -12,12 +12,10 @@ describe 'NodeTemplate', ->
       node_template.should.be.an.instanceof(NodeTemplate)
 
     it 'should load bookshelf', (done) ->
-      node_template.bookshelf.spread(
-        (db, classes) ->
-          db.should.be.an.instanceof(Object)
-          classes.should.be.an.instanceof(Object)
-          done()
-      )
+      node_template.bookshelf().spread (db, classes) ->
+        db.should.be.an.instanceof(Object)
+        classes.should.be.an.instanceof(Object)
+        done()
 
     it 'should load express', (done) ->
       node_template.express.spread (app, controllers) ->

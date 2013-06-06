@@ -2,70 +2,37 @@ for key, value of require('./node-template/common')
   eval("var #{key} = value;")
 
 module.exports = class NodeTemplate
-
   constructor: (port) ->
-    @bookshelf = @loadBookshelf().then =>
-      @express = @loadExpress(port)
+    @bookshelf().then(@express(port)).done()
 
-  @glob: (path) ->
-    [ promise, resolve ] = defer()
-    glob path, (e, files) => resolve(files)
-    promise
-
-  loadBookshelf: ->
-    NodeTemplate.loadBookshelf().spread (db, classes) =>
+  bookshelf: ->
+    NodeTemplate.bookshelf().spread (db, classes) =>
       @db = db
       _.extend(@, classes)
-      Q.resolve([ db, classes ])
+      [ db, classes ]
 
-  @loadBookshelf: ->
-    [ promise, resolve, reject ] = defer()
+  @bookshelf: ->
+    return @_bookshelf  if @_bookshelf
+    models = "#{__dirname}/node-template/models/**/*.js"
 
-    config = JSON.parse(
-      fs.readFileSync(
-        path.resolve(__dirname, "../config/database.json")
-      )
-    )
+    @_bookshelf = @glob(models).then((files) =>
+      [
+        # db
+        Bookshelf.Initialize(@config("../config/database.json"))
+        
+        # models
+        _.reduce(files
+          (obj, file) => _.extend(obj, require(file))
+          {}
+        )
+      ]
+    ).fail (e) =>
+      delete @_bookshelf
+      throw e
 
-    db = Bookshelf.Initialize(config)
-    @glob("#{__dirname}/node-template/models/**/*.js").then (files) =>
-      classes = _.reduce(files
-        (obj, file) =>
-          _.extend(obj, require(file))
-        {}
-      )
-      resolve([ db, classes ])
+  @config: (json) ->
+    config = path.resolve(__dirname, json)
+    JSON.parse(fs.readFileSync(config))
 
-    promise
-
-  loadExpress: (port) ->
-    NodeTemplate.loadExpress(port).spread (app, controllers) =>
-      @app = app
-      _.extend(@, controllers)
-      Q.resolve([ app, controllers ])
-  
-  @loadExpress: (port) ->
-    [ promise, resolve, reject ] = defer()
-
-    app = express(port)
-    app.configure =>
-      app.use express.static("#{__dirname}/../../public")
-      app.use express.bodyParser()
-      app.use express.cookieParser()
-      app.use express.logger()
-      app.use express.methodOverride()
-
-    @glob("#{__dirname}/node-template/controllers/**/*.js").then (files) =>
-      controllers = _.reduce(files
-        (obj, file) =>
-          _.extend(obj, require(file))
-        {}
-      )
-
-      if port
-        app.listen(port)
-        console.log("NodeTemplate started on #{port}.")
-
-      resolve([ app, controllers ])
-
-    promise
+  @glob: (path) ->
+    Q.nfcall(glob, path)
