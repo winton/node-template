@@ -3,14 +3,20 @@ for key, value of require('./node-template/common')
 
 module.exports = class NodeTemplate
   constructor: ->
-    @loadBookshelf()
+    @bookshelf = @loadBookshelf()
 
-  glob: (path) ->
+  @glob: (path) ->
     [ promise, resolve ] = defer()
     glob path, (e, files) => resolve(files)
     promise
 
   loadBookshelf: ->
+    NodeTemplate.loadBookshelf().spread (db, classes) =>
+      @db = db
+      _.extend(@, classes)
+      Q.resolve([ db, classes ])
+
+  @loadBookshelf: ->
     [ promise, resolve, reject ] = defer()
 
     config = JSON.parse(
@@ -19,12 +25,13 @@ module.exports = class NodeTemplate
       )
     )
 
-    @db = Bookshelf.Initialize(config)
-    @glob("#{__dirname}/node-template/models/**/*.js").then(
-      (files) =>
-        _.each files, (file) =>
-          _.extend(@, require(file))
-        resolve()
-    )
+    db = Bookshelf.Initialize(config)
+    @glob("#{__dirname}/node-template/models/**/*.js").then (files) =>
+      classes = _.reduce(files
+        (obj, file) =>
+          _.extend(obj, require(file))
+        {}
+      )
+      resolve([ db, classes ])
 
     promise
