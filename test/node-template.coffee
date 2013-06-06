@@ -17,3 +17,11 @@ describe 'NodeTemplate', ->
           classes.should.be.an.instanceof(Object)
           done()
       )
+
+    it 'should load bookshelf', (done) ->
+      node_template.loadBookshelf().spread(
+        (db, classes) ->
+          db.should.be.an.instanceof(Object)
+          classes.should.be.an.instanceof(Object)
+          done()
+      )

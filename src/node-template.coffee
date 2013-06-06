@@ -11,12 +11,13 @@ module.exports = class NodeTemplate
     promise
 
   loadBookshelf: ->
-    NodeTemplate.loadBookshelf().spread (db, classes) =>
+    @bookshelf || NodeTemplate.loadBookshelf().spread (db, classes) =>
       @db = db
       _.extend(@, classes)
       Q.resolve([ db, classes ])
 
   @loadBookshelf: ->
+    return @bookshelf  if @bookshelf
     [ promise, resolve, reject ] = defer()
 
     config = JSON.parse(
@@ -32,6 +33,6 @@ module.exports = class NodeTemplate
           _.extend(obj, require(file))
         {}
       )
-      resolve([ db, classes ])
+      @bookshelf = resolve([ db, classes ])
 
     promise
