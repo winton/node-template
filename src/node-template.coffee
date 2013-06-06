@@ -3,32 +3,33 @@ for key, value of require('./node-template/common')
 
 module.exports = class NodeTemplate
   constructor: (port) ->
-    @express = @loadExpress(port)
+    @express(port).done()
 
-  @glob: (path) ->
-    [ promise, resolve ] = defer()
-    glob path, (e, files) => resolve(files)
-    promise
+  @config: (json) ->
+    config = path.resolve(__dirname, json)
+    JSON.parse(fs.readFileSync(config))
 
-  loadExpress: (port) ->
-    NodeTemplate.loadExpress(port).spread (app, controllers) =>
+  express: (port) ->
+    NodeTemplate.express(port).spread (app, controllers) =>
       @app = app
       _.extend(@, controllers)
-      Q.resolve([ app, controllers ])
+      [ app, controllers ]
   
-  @loadExpress: (port) ->
-    [ promise, resolve, reject ] = defer()
+  @express: (port) ->
+    return @_express  if @_express
+    controllers = "#{__dirname}/node-template/controllers/**/*.js"
 
-    app = express(port)
-    app.configure =>
-      app.use express.static("#{__dirname}/../../public")
-      app.use express.bodyParser()
-      app.use express.cookieParser()
-      app.use express.logger()
-      app.use express.methodOverride()
+    @glob(controllers).then((files) =>
+      app = express(port)
 
-    @glob("#{__dirname}/node-template/controllers/**/*.js").then (files) =>
-      controllers = _.reduce(files
+      app.configure =>
+        app.use express.static("#{__dirname}/../../public")
+        app.use express.bodyParser()
+        app.use express.cookieParser()
+        app.use express.logger()
+        app.use express.methodOverride()
+
+      classes = _.reduce(files
         (obj, file) =>
           _.extend(obj, require(file))
         {}
@@ -38,6 +39,10 @@ module.exports = class NodeTemplate
         app.listen(port)
         console.log("NodeTemplate started on #{port}.")
 
-      resolve([ app, controllers ])
-    
-    promise
+      [ app, classes ]
+    ).fail (e) =>
+      delete @_express
+      throw e
+
+  @glob: (path) ->
+    Q.nfcall(glob, path)
