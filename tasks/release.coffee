@@ -4,3 +4,5 @@
 module.exports = (grunt) ->
 
   grunt.loadNpmTasks "grunt-release"
+  grunt.task.renameTask "release", "release:publish"
+  grunt.task.registerTask "release", [ "coffee:clean", "coffee", "release:publish" ]
