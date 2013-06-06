@@ -10,8 +10,8 @@ module.exports = class NodeTemplate
     glob path, (e, files) => resolve(files)
     promise
 
-  loadExpress: ->
-    NodeTemplate.loadExpress().spread (app, controllers) =>
+  loadExpress: (port) ->
+    NodeTemplate.loadExpress(port).spread (app, controllers) =>
       @app = app
       _.extend(@, controllers)
       Q.resolve([ app, controllers ])
