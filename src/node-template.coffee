@@ -3,35 +3,41 @@ for key, value of require('./node-template/common')
 
 module.exports = class NodeTemplate
   constructor: (port) ->
-    @loadExpress(port)
+    @express = @loadExpress(port)
 
-  glob: (path) ->
+  @glob: (path) ->
     [ promise, resolve ] = defer()
     glob path, (e, files) => resolve(files)
     promise
+
+  loadExpress: ->
+    NodeTemplate.loadExpress().spread (app, controllers) =>
+      @app = app
+      _.extend(@, controllers)
+      Q.resolve([ app, controllers ])
   
-  loadExpress: (port) ->
+  @loadExpress: (port) ->
     [ promise, resolve, reject ] = defer()
 
-    @app = express(port)
-    @app.configure =>
-      @app.use express.static("#{__dirname}/../../public")
-      @app.use express.bodyParser()
-      @app.use express.cookieParser()
-      @app.use express.logger()
-      @app.use express.methodOverride()
+    app = express(port)
+    app.configure =>
+      app.use express.static("#{__dirname}/../../public")
+      app.use express.bodyParser()
+      app.use express.cookieParser()
+      app.use express.logger()
+      app.use express.methodOverride()
 
-    @glob("#{__dirname}/node-template/controllers/**/*.js").then(
-      (files) =>
-        _.each files, (file) =>
-          for key, value of require(file)
-            @[key] = new value(@app)
+    @glob("#{__dirname}/node-template/controllers/**/*.js").then (files) =>
+      controllers = _.reduce(files
+        (obj, file) =>
+          _.extend(obj, require(file))
+        {}
+      )
 
-        if port
-          @app.listen(port)
-          console.log("NodeTemplate started on #{port}.")
+      if port
+        app.listen(port)
+        console.log("NodeTemplate started on #{port}.")
 
-        resolve()
-    )
+      resolve([ app, controllers ])
     
     promise
