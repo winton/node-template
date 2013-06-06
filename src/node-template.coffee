@@ -3,36 +3,36 @@ for key, value of require('./node-template/common')
 
 module.exports = class NodeTemplate
   constructor: ->
-    @bookshelf = @loadBookshelf()
+    @bookshelf().done()
 
-  @glob: (path) ->
-    [ promise, resolve ] = defer()
-    glob path, (e, files) => resolve(files)
-    promise
-
-  loadBookshelf: ->
-    @bookshelf || NodeTemplate.loadBookshelf().spread (db, classes) =>
+  bookshelf: ->
+    NodeTemplate.bookshelf().spread (db, classes) =>
       @db = db
       _.extend(@, classes)
-      Q.resolve([ db, classes ])
+      [ db, classes ]
 
-  @loadBookshelf: ->
-    return @bookshelf  if @bookshelf
-    [ promise, resolve, reject ] = defer()
+  @bookshelf: ->
+    return @_bookshelf  if @_bookshelf
+    models = "#{__dirname}/node-template/models/**/*.js"
 
-    config = JSON.parse(
-      fs.readFileSync(
-        path.resolve(__dirname, "../config/database.json")
-      )
-    )
+    @_bookshelf = @glob(models).then((files) =>
+      [
+        # db
+        Bookshelf.Initialize(@config("../config/database.json"))
+        
+        # models
+        _.reduce(files
+          (obj, file) => _.extend(obj, require(file))
+          {}
+        )
+      ]
+    ).fail (e) =>
+      delete @_bookshelf
+      throw e
 
-    db = Bookshelf.Initialize(config)
-    @glob("#{__dirname}/node-template/models/**/*.js").then (files) =>
-      classes = _.reduce(files
-        (obj, file) =>
-          _.extend(obj, require(file))
-        {}
-      )
-      @bookshelf = resolve([ db, classes ])
+  @config: (json) ->
+    config = path.resolve(__dirname, json)
+    JSON.parse(fs.readFileSync(config))
 
-    promise
+  @glob: (path) ->
+    Q.nfcall(glob, path)
