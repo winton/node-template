@@ -1,6 +1,6 @@
 {
   "name": "node-template",
-  "version": "0.1.9",
+  "version": "0.1.11",
   "author": "Winton Welsh <mail@wintoni.us>",
   "repository": {
     "type": "git",
@@ -10,6 +10,7 @@
     "bookshelf": "",
     "express": "",
     "glob": "",
+    "knex": "",
     "mysql": "",
     "pg": "",
     "sqlite3": "",

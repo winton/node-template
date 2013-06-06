@@ -1,4 +1,4 @@
-for key, value of require('./common')
+for key, value of require('../common')
   eval("var #{key} = value;")
 
 module.exports =
