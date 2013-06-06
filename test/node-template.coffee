@@ -18,7 +18,7 @@ describe 'NodeTemplate', ->
         done()
 
     it 'should load express', (done) ->
-      node_template.express.spread (app, controllers) ->
+      node_template.express().spread (app, controllers) ->
         app.should.be.an.instanceof(Object)
         controllers.should.be.an.instanceof(Object)
         done()
