@@ -7,6 +7,7 @@
     "url": "https://github.com/winton/node-template.git"
   },
   "dependencies": {
+    "aws-sdk": "",
     "q": "",
     "underscore": ""
   },

@@ -1,4 +1,5 @@
 common =
+  AWS : require('aws-sdk')
   fs  : require('fs')
   path: require('path')
   Q   : require('q')

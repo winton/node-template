@@ -3,3 +3,4 @@ for key, value of require('./node-template/common')
 
 module.exports = class NodeTemplate
   constructor: ->
+    AWS.config.loadFromPath(path.resolve(__dirname, "../config/aws.json"))
