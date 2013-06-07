@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "chai": "",
+    "coffee-migrate": "",
     "coffee-script": "",
     "glob": "",
     "grunt": "",
@@ -31,6 +32,6 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "mocha test/test.js --reporter spec"
+    "test": "mocha test/test.js --reporter spec -t 10000"
   }
 }
