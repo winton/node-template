@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "aws-sdk": "",
+    "express": "",
+    "glob": "",
     "q": "",
     "underscore": ""
   },
@@ -15,7 +17,6 @@
     "chai": "",
     "coffee-migrate": "",
     "coffee-script": "",
-    "glob": "",
     "grunt": "",
     "grunt-contrib-coffee": "",
     "grunt-contrib-watch": "",

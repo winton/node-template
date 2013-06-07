@@ -1,9 +1,11 @@
 common =
-  AWS : require('aws-sdk')
-  fs  : require('fs')
-  path: require('path')
-  Q   : require('q')
-  _   : require('underscore')
+  AWS    : require('aws-sdk')
+  express: require('express')
+  fs     : require('fs')
+  glob   : require('glob')
+  path   : require('path')
+  Q      : require('q')
+  _      : require('underscore')
 
 common.defer = ->
   d = common.Q.defer()

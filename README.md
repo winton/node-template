@@ -1,6 +1,6 @@
-##NodeTemplate
+##NodeTemplate - express
 
-Node.js package template.
+Node.js web app template.
 
 ###Goals
 
@@ -15,16 +15,17 @@ Node.js package template.
 
 ###Create a new project
 
-	node-template <project-name> <branch>
+	node-template <project-name> express
 
-Available branches:
+Other available branches:
 
 * **master** - Base npm package template *(default)*
 * [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - Bookshelf.js database ORM
-* [**express**](https://github.com/winton/node-template/tree/express) - Express.js web server
 * [**bookshelf-express**](https://github.com/winton/node-template/tree/bookshelf-express) - Bookshelf + Express
 
 ###Start working
+
+Run `bin/<project-name>` to start the web server.
 
 Run `grunt` to watch for changes in `src` and compile them to `lib`.
 
