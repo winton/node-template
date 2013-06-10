@@ -24,5 +24,9 @@ module.exports = (grunt) ->
       overwrite   : true
       replacements: [ from: /NodeTemplate/g, to: "<%= grunt.util.toCamel(pkg.name) %>" ]
       src         : replace_paths
+    instance_variables:
+      overwrite   : true
+      replacements: [ from: /node_template/g, to: "<%= pkg.name.replace('-', '_') %>" ]
+      src         : replace_paths
 
   grunt.loadNpmTasks "grunt-text-replace"
