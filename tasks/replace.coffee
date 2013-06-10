@@ -13,6 +13,7 @@ module.exports = (grunt) ->
       src         : replace_paths = [
         "bin/*"
         "Gruntfile.coffee"
+        "migrations/**/*.coffee"
         "package.json"
         "src/**/*.coffee"
         "tasks/**/*.coffee"
