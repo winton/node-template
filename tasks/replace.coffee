@@ -14,6 +14,7 @@ module.exports = (grunt) ->
         "bin/*"
         "Gruntfile.coffee"
         "package.json"
+        "README.md"
         "src/**/*.coffee"
         "tasks/**/*.coffee"
         "test/**/*.coffee"
