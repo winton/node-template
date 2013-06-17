@@ -5,7 +5,7 @@ path = require("path")
 
 module.exports = (grunt) ->
 
-  grunt.config.data.coffee =
+  grunt.config.data["coffee:write"] =
     glob_to_multiple:
       options: sourceMap: true
       expand : true
@@ -27,3 +27,6 @@ module.exports = (grunt) ->
         done()
     )
   )
+
+  grunt.task.renameTask "coffee", "coffee:write"
+  grunt.task.registerTask "coffee", [ "coffee:clean", "coffee:write" ]
