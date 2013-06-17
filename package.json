@@ -23,6 +23,7 @@
     "grunt": "",
     "grunt-contrib-coffee": "",
     "grunt-contrib-watch": "",
+    "grunt-merge": "",
     "grunt-release": "",
     "grunt-rename": "",
     "grunt-text-replace": "",
@@ -35,6 +36,7 @@
     "node-template": "./bin/node-template"
   },
   "license": "MIT",
+  "main": "./lib/node-template.js",
   "scripts": {
     "test": "mocha test/test.js --reporter spec"
   }
