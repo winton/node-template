@@ -7,7 +7,7 @@ module.exports = (grunt) ->
 
   grunt.config.data.merge =
     'aws'              : [ 'master' ]
-    'aws-dynamo'       : [ 'aws', 'dynamo' ]
+    'aws-dynamo'       : [ 'aws' ]
     'bookshelf'        : [ 'master' ]
     'bookshelf-express': [ 'bookshelf', 'express' ]
     'express'          : [ 'master' ]
