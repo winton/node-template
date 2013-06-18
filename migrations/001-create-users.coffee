@@ -2,7 +2,7 @@ for key, value of require("../lib/node-template/common")
   eval("var #{key} = value;")
 
 NodeTemplate = require("../lib/node-template")
-bookshelf    = NodeTemplate.loadBookshelf()
+bookshelf    = NodeTemplate.bookshelf()
 
 exports.up = (next) ->
   bookshelf.spread((db) ->
