@@ -11,6 +11,7 @@
     "underscore": ""
   },
   "devDependencies": {
+    "blanket": "",
     "chai": "",
     "coffee-script": "",
     "glob": "",
@@ -18,6 +19,7 @@
     "grunt-contrib-coffee": "",
     "grunt-contrib-watch": "",
     "grunt-merge": "",
+    "grunt-mocha-test": "",
     "grunt-release": "",
     "grunt-rename": "",
     "grunt-text-replace": "",

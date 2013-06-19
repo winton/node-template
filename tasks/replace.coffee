@@ -18,6 +18,7 @@ module.exports = (grunt) ->
         "src/**/*.coffee"
         "tasks/**/*.coffee"
         "test/**/*.coffee"
+        "test/**/*.js"
       ]
     class_variables:
       overwrite   : true
