@@ -20,15 +20,21 @@ Node.js package template.
 Available branches:
 
 * **master** - Base npm package template *(default)*
+* [**aws-dynamo**](https://github.com/winton/node-template/tree/aws-dynamo) - Dynamo DB
+* [**aws-dynamo-express**](https://github.com/winton/node-template/tree/aws-dynamo-express) - Dynamo DB + Express
 * [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - Bookshelf.js database ORM
-* [**express**](https://github.com/winton/node-template/tree/express) - Express.js web server
 * [**bookshelf-express**](https://github.com/winton/node-template/tree/bookshelf-express) - Bookshelf + Express
+* [**express**](https://github.com/winton/node-template/tree/express) - Express.js web server
 
-###Start working
+###Coffeescript (optional)
 
-Run `grunt` to watch for changes in `src` and compile them to `lib`.
+Run `grunt` to watch for Coffeescript changes in `src` and compile them to `lib`.
 
-Run `npm test` to execute your test suite.
+###Tests
+
+Run `grunt mocha` to execute your test suite with coverage statistics.
+
+The `npm test` command runs the test suite without coverage (Travis-CI).
 
 ### Contribute
 
