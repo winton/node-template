@@ -20,16 +20,27 @@ Node.js web server with a database ORM.
 Other available branches:
 
 * **master** - Base npm package template *(default)*
+* [**aws-dynamo**](https://github.com/winton/node-template/tree/aws-dynamo) - Dynamo DB
+* [**aws-dynamo-express**](https://github.com/winton/node-template/tree/aws-dynamo-express) - Dynamo DB + Express
 * [**bookshelf**](https://github.com/winton/node-template/tree/bookshelf) - Bookshelf.js database ORM
 * [**express**](https://github.com/winton/node-template/tree/express) - Express.js web server
 
-###Start working
+###Coffeescript (optional)
 
+Run `grunt` to watch for Coffeescript changes in `src` and compile them to `lib`.
+>>>>>>> bookshelf
+
+###Tests
+
+<<<<<<< HEAD
 Run `bin/<project-name>` to start the web server.
 
 Run `grunt` to watch for changes in `src` and compile them to `lib`.
+=======
+Run `grunt mocha` to execute your test suite with coverage statistics.
+>>>>>>> bookshelf
 
-Run `npm test` to execute your test suite.
+The `npm test` command runs the test suite without coverage (Travis-CI).
 
 ### Contribute
 
