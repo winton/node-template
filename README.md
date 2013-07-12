@@ -28,17 +28,16 @@ Other available branches:
 ###Coffeescript (optional)
 
 Run `grunt` to watch for Coffeescript changes in `src` and compile them to `lib`.
->>>>>>> bookshelf
 
-###Tests
+###Start working
 
-<<<<<<< HEAD
 Run `bin/<project-name>` to start the web server.
 
 Run `grunt` to watch for changes in `src` and compile them to `lib`.
-=======
+
+###Tests
+
 Run `grunt mocha` to execute your test suite with coverage statistics.
->>>>>>> bookshelf
 
 The `npm test` command runs the test suite without coverage (Travis-CI).
 
