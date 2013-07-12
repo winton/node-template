@@ -30,6 +30,10 @@ Other available branches:
 
 Run `grunt` to watch for Coffeescript changes in `src` and compile them to `lib`.
 
+###Start working
+
+Run `grunt` to watch for changes in `src` and compile them to `lib`.
+
 ###Tests
 
 Run `grunt mocha` to execute your test suite with coverage statistics.
