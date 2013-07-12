@@ -60,6 +60,13 @@ module.exports = class NodeTemplate
         {}
       )
 
+      _.each classes, (klass, name) ->
+        classes[name] = new klass(app)
+
+      if port
+        app.listen(port)
+        console.log("NodeTemplate started on #{port}.")
+
       [ app, classes ]
     ).fail (e) =>
       delete @_express
