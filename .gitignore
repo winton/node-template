@@ -1,6 +1,3 @@
-.DS_Store
-lib
-node_modules
-test/coverage/coverage.html
-test/fixture
-tmp
+/doc
+/lib
+/node_modules

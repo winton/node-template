@@ -1,0 +1,39 @@
+{
+  "name": "node-template",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run compile",
+    "prepublish": "npm run compile",
+    "prestart": "rm -rf lib",
+    "compile": "rm -rf lib && babel src -s --out-dir lib",
+    "start": "babel src -s -w --out-dir lib",
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/winton/node-template.git"
+  },
+  "author": "Winton Welsh <winton@inverse.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/winton/node-template/issues"
+  },
+  "homepage": "https://github.com/winton/node-template#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.5.1",
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-plugin-syntax-async-functions": "^6.5.0",
+    "babel-plugin-transform-async-to-generator": "^6.5.0",
+    "babel-plugin-transform-object-rest-spread": "^6.5.0",
+    "babel-plugin-transform-runtime": "^6.5.2",
+    "babel-runtime": "^6.3.19",
+    "jasmine": "^2.4.1",
+    "source-map-support": "^0.4.0"
+  }
+}

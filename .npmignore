@@ -1,6 +1,3 @@
-.git*
-.DS_Store
-Gruntfile.coffee
-node_modules
-tasks
-test
+doc/
+spec/
+src/

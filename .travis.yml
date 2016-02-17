@@ -1,5 +1,6 @@
+before_install: 
+  - npm install --ignore-scripts
 language: node_js
 node_js:
-  - "0.10"
-before_script:
-  - "grunt coffee"
+  - "5.6"
+  - "4.3.1"
