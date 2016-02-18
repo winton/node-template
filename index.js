@@ -1,1 +1,1 @@
-module.exports = require("./lib/template").default
+module.exports = require("./lib/node-template").default
