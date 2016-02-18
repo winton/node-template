@@ -11,7 +11,7 @@ then
   exit
 fi
 
-declare -a files=("spec/**/*" "src/**/*" "index.js" "package.json" "README.md")
+declare -a files=("spec/**/*" "src/*" "index.js" "package.json" "README.md" "bin/rename")
 
 for file in "${files[@]}"
 do
@@ -22,4 +22,4 @@ done
 
 mv spec/integrate/node-template.spec.js spec/integrate/$ntfname.spec.js
 mv spec/unit/node-template.spec.js spec/unit/$ntfname.spec.js
-mv lib/node-template.js lib/$ntfname.js
+mv src/node-template.js src/$ntfname.js
