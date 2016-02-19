@@ -7,5 +7,6 @@ A template for node projects.
 ```bash
 git clone --depth 1 git://github.com/winton/node-template.git my_project
 cd my_project
+rm -rf .git
 ./bin/rename [GITUSER] [GITREPO] [LOWERCASENAME] [CLASSNAME]
 ```
