@@ -30,7 +30,8 @@
     "industry-include": "",
     "industry-instance": "",
     "industry-pattern": "",
-    "industry-standard-io": ""
+    "industry-standard-io": "",
+    "industry-tasks": ""
   },
   "devDependencies": {
     "babel": "^6.5.2",
