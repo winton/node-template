@@ -22,7 +22,15 @@
   },
   "homepage": "https://github.com/winton/node-template#readme",
   "dependencies": {
-    "babel-runtime": "^6.6.1"
+    "babel-runtime": "^6.6.1",
+    "industry": "",
+    "industry-chain": "",
+    "industry-exception": "",
+    "industry-functions": "",
+    "industry-include": "",
+    "industry-instance": "",
+    "industry-pattern": "",
+    "industry-standard-io": ""
   },
   "devDependencies": {
     "babel": "^6.5.2",
